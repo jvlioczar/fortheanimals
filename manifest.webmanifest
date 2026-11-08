@@ -1,0 +1,27 @@
+{
+ "name": "For the Animals: An Argument Guide",
+ "short_name": "For the Animals",
+ "start_url": "/",
+ "display": "standalone",
+ "background_color": "#fcfaf5",
+ "theme_color": "#0a3703",
+ "lang": "en",
+ "icons": [
+  {
+   "src": "assets/icon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml"
+  },
+  {
+   "src": "assets/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "assets/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any maskable"
+  }
+ ]
+}
