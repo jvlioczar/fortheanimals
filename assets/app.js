@@ -311,7 +311,7 @@
     var d = new Date(), hoje = d.getDate() + ' ' + MES[d.getMonth()] + ' ' + d.getFullYear();
     var abnt = (acoes.dataset.abnt || '').replace('{ACESSO}', hoje), apa = acoes.dataset.apa || '';
     var limpo = function (h) { var t = document.createElement('div'); t.innerHTML = h; return t.textContent; };
-    var c = modal('How to cite this page', '<p class="fino">Reference for this page, with the link and today's access date. Check the style your institution requires.</p>' +
+    var c = modal('How to cite this page', '<p class="fino">Reference for this page, with the link and today’s access date. Check the style your institution requires.</p>' +
       '<div class="cit-bloco"><p class="cit-ti">MLA</p><p class="cit-txt">' + abnt + '</p><button type="button" class="btn alt" data-c="abnt">Copy MLA</button></div>' +
       '<div class="cit-bloco"><p class="cit-ti">APA</p><p class="cit-txt">' + apa + '</p><button type="button" class="btn alt" data-c="apa">Copy APA</button></div>');
     $('[data-c="abnt"]', c).addEventListener('click', function () { copiar(limpo(abnt), this); });
@@ -378,7 +378,7 @@
   bOuvir.addEventListener('click', function () {
     if (!tocando && !voz() && !bOuvir.dataset.avisou) {
       bOuvir.dataset.avisou = '1';
-      modal('No English voice found', '<p>Your browser or system has no English voice installed, so the reading may come out with another language's accent.</p><p class="fino">On Windows: Settings → Time &amp; language → Speech → Add voices → English. On Android and iPhone, English voices are usually in the accessibility or text-to-speech settings. Chrome and Edge include English voices on most computers.</p>');
+      modal('No English voice found', '<p>Your browser or system has no English voice installed, so the reading may come out with another language’s accent.</p><p class="fino">On Windows: Settings → Time &amp; language → Speech → Add voices → English. On Android and iPhone, English voices are usually in the accessibility or text-to-speech settings. Chrome and Edge include English voices on most computers.</p>');
     }
     if (tocando) { tocando = false; synth.cancel(); estado(); return; }
     if (!fila.length) monta();
