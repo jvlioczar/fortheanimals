@@ -40,7 +40,15 @@
   };
 
   var hamb = $('.hamb'), menu = $('.menu');
-  if (hamb) hamb.addEventListener('click', function () { menu.classList.toggle('aberto'); hamb.setAttribute('aria-expanded', menu.classList.contains('aberto')); });
+  // Menu aberto: no máximo a altura visível abaixo do cabeçalho; o que passar disso rola dentro do próprio menu.
+  var alturaMenu = function () {
+    if (!menu || !menu.classList.contains('aberto')) return;
+    var topo = menu.getBoundingClientRect().top;
+    menu.style.setProperty('--menu-max', Math.max(160, window.innerHeight - Math.max(topo, 0) - 12) + 'px');
+  };
+  if (hamb) hamb.addEventListener('click', function () { menu.classList.toggle('aberto'); hamb.setAttribute('aria-expanded', menu.classList.contains('aberto')); alturaMenu(); });
+  window.addEventListener('resize', alturaMenu);
+  window.addEventListener('scroll', alturaMenu, { passive: true });
   // Grupos do menu: só um aberto por vez; fecham ao clicar fora ou com Esc.
   var subs = document.querySelectorAll('.menu .sub');
   subs.forEach(function (d) { d.addEventListener('toggle', function () { if (d.open) subs.forEach(function (o) { if (o !== d) o.open = false; }); }); });

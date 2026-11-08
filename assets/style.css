@@ -257,7 +257,7 @@ details.item[open]{background:var(--cartao);border-radius:10px;box-shadow:inset 
 
 @media(max-width:1180px){
   .menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cartao);flex-direction:column;align-items:stretch;padding:10px 16px;box-shadow:0 12px 24px #0a370322}
-  .menu.aberto{display:flex}.hamb{display:block;margin-left:0}.bbusca{margin-left:auto}.bbusca span,.bbusca kbd{display:none}
+  .menu.aberto{display:flex;max-height:var(--menu-max,calc(100vh - 140px));overflow-y:auto;overscroll-behavior:contain}.hamb{display:block;margin-left:0}.bbusca{margin-left:auto}.bbusca span,.bbusca kbd{display:none}
   .capa-in,.lay,.tres,.raizes,.rodape-in{grid-template-columns:1fr}
   .indice{position:static;max-height:none;background:var(--areia);border-radius:14px;padding:14px}
   .numeros{grid-template-columns:repeat(2,1fr)}
