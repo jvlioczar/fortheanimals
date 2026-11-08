@@ -5,6 +5,40 @@
   var base = document.body.dataset.base || '';
   var norm = function (s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); };
 
+  /* índice de busca (assets/busca.json): carregado uma vez, quando alguém abre ou usa uma busca */
+  var dados = null, pedindo = null, esperando = [];
+  var carrega = function (pronto) {
+    if (dados) { pronto(); return; }
+    esperando.push(pronto);
+    if (pedindo) return;
+    pedindo = fetch(base + 'assets/busca.json').then(function (r) { return r.json(); }).then(function (j) {
+      // campos já normalizados: título, outras formas, subtítulo, descrição e palavras do conteúdo
+      j.forEach(function (d) { d.n = [norm(d.t), norm(d.k), norm(d.s), norm(d.d), d.c || '']; });
+      dados = j; esperando.forEach(function (f) { f(); }); esperando = [];
+    });
+  };
+  // Ordem: primeiro o título, depois outras formas e subtítulo, a descrição e, por fim, o conteúdo da página.
+  // Com várias palavras, todas precisam aparecer em algum lugar da página; cada uma soma o peso do campo mais forte em que aparece.
+  var PESOS = [50, 30, 25, 10, 1];
+  var procura = function (texto, max) {
+    var t = norm(texto).trim(), termos = t.split(/\s+/).filter(function (x) { return x.length >= 2; });
+    if (!termos.length || !dados) return [];
+    var achados = [];
+    dados.forEach(function (d, ordem) {
+      var p = 0;
+      for (var i = 0; i < termos.length; i++) {
+        var melhor = 0;
+        for (var c = 0; c < 5; c++) if (d.n[c].indexOf(termos[i]) >= 0) { melhor = PESOS[c]; break; }
+        if (!melhor) return;
+        p += melhor;
+      }
+      if (termos.length > 1 && d.n[0].indexOf(t) >= 0) p += 40;  // a frase inteira no título vem antes
+      achados.push({ d: d, p: p, o: ordem });
+    });
+    achados.sort(function (a, b) { return b.p - a.p || a.o - b.o; });
+    return achados.slice(0, max).map(function (x) { return x.d; });
+  };
+
   var hamb = $('.hamb'), menu = $('.menu');
   if (hamb) hamb.addEventListener('click', function () { menu.classList.toggle('aberto'); hamb.setAttribute('aria-expanded', menu.classList.contains('aberto')); });
   // Grupos do menu: só um aberto por vez; fecham ao clicar fora ou com Esc.
@@ -14,8 +48,8 @@
   document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') subs.forEach(function (d) { if (d.open) { d.open = false; d.querySelector('summary').focus(); } }); });
 
   /* busca */
-  var ov = $('#busca'), q = $('#q'), res = $('#res'), dados = null, idx = -1;
-  function abre() { ov.hidden = false; q.value = ''; res.textContent = ''; q.focus(); if (!dados) fetch(base + 'assets/busca.json').then(function (r) { return r.json(); }).then(function (j) { dados = j; }); }
+  var ov = $('#busca'), q = $('#q'), res = $('#res'), idx = -1;
+  function abre() { ov.hidden = false; q.value = ''; res.textContent = ''; q.focus(); carrega(function () { if (q.value) mostra(); }); }
   function fecha() { ov.hidden = true; }
   $$('.bbusca').forEach(function (b) { b.addEventListener('click', abre); });
   ov.addEventListener('click', function (e) { if (e.target === ov) fecha(); });
@@ -23,16 +57,17 @@
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); abre(); }
     if (e.key === 'Escape') fecha();
   });
-  q.addEventListener('input', function () {
+  function mostra() {
     var t = norm(q.value).trim(); res.textContent = ''; idx = -1;
     if (t.length < 2 || !dados) return;
-    var ach = dados.filter(function (d) { return norm(d.t + ' ' + d.k).indexOf(t) >= 0; }).slice(0, 12);
+    var ach = procura(q.value, 20);
     if (!ach.length) { var p = document.createElement('p'); p.textContent = 'Nothing found. Try another word from the objection.'; res.appendChild(p); return; }
     ach.forEach(function (d) {
       var a = document.createElement('a'); a.href = base + d.u; a.textContent = d.t;
       var s = document.createElement('small'); s.textContent = d.s; a.appendChild(s); res.appendChild(a);
     });
-  });
+  }
+  q.addEventListener('input', function () { carrega(mostra); });
   q.addEventListener('keydown', function (e) {
     var ls = $$('a', res); if (!ls.length) return;
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
@@ -149,18 +184,22 @@
       ni = (ni + 1) % ns.length; var n = ns[ni];
       $('#n-f').textContent = '"' + n.f + '"'; $('#n-r').textContent = n.r; $('#n-l').href = n.u;
     });
-    var hq = $('#hq'), hres = $('#hres'), its = $$('#catalogo details.item');
-    hq.addEventListener('input', function () {
+    var hq = $('#hq'), hres = $('#hres');
+    // Busca do topo: o mesmo índice e a mesma ordem da busca do menu; o código do argumento (A14., V3.) vira o selo.
+    var mostraH = function () {
       var t = norm(hq.value).trim(); hres.textContent = '';
       hres.hidden = t.length < 2; if (hres.hidden) return;
-      var ach = its.filter(function (d) { return norm(d.textContent).indexOf(t) >= 0; }).slice(0, 6);
+      var ach = procura(hq.value, 8);
       if (!ach.length) { var p = document.createElement('p'); p.textContent = 'Nothing found. Try another word.'; hres.appendChild(p); return; }
       ach.forEach(function (d) {
-        var a = document.createElement('a'); a.href = d.dataset.u;
-        var b = document.createElement('b'); b.textContent = $('.cod', d).textContent; a.appendChild(b);
-        a.appendChild(document.createTextNode($('summary b', d).textContent)); hres.appendChild(a);
+        var a = document.createElement('a'); a.href = base + d.u;
+        var m = /^([A-Z]\d{1,2})\. (.*)$/.exec(d.t);
+        if (m) { var b = document.createElement('b'); b.textContent = m[1]; a.appendChild(b); }
+        a.appendChild(document.createTextNode(m ? m[2] : d.t)); hres.appendChild(a);
       });
-    });
+    };
+    hq.addEventListener('focus', function () { carrega(function () {}); });
+    hq.addEventListener('input', function () { carrega(mostraH); });
     /* divisória da família visível */
     var gs = $$('.guias a');
     /* a divisória troca no momento em que o bloco da família chega à altura das divisórias */
