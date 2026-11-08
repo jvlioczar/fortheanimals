@@ -508,8 +508,8 @@ details.item summary:hover{background:#ffeb5b66}details.item[open]{background:#f
 .barra-f .guias a:hover{transform:translateY(-2px)}
 .barra-f .guias a.on{background:var(--c);color:#fff;transform:translateY(-2px);box-shadow:0 3px 0 var(--tinta)}
 @media(max-width:760px){.grupo-f{grid-template-columns:1fr}.aba-f{display:none}.grupo-f .folha{border-left-width:1.5px}}
-/* fileira A–L na barra: uma régua segmentada, de ponta a ponta, com a cor de cada família embaixo */
-.barra-f .guias{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0;padding:0;margin:8px 0 2px;background:#fff;border:1.5px solid var(--tinta);border-radius:12px;overflow:hidden}
+/* fileira de letras na barra: uma régua segmentada, de ponta a ponta, com a cor de cada família embaixo; uma coluna por família, quantas houver */
+.barra-f .guias{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:0;padding:0;margin:8px 0 2px;background:#fff;border:1.5px solid var(--tinta);border-radius:12px;overflow:hidden}
 .barra-f .guias a{width:auto;height:34px;border:0;border-left:1.5px solid var(--linha);border-radius:0;background:#fff;color:var(--c);font:800 .95rem var(--serif);box-shadow:inset 0 -4px 0 var(--c);transform:none}
 .barra-f .guias a:first-child{border-left:0}
 .barra-f .guias a:hover{background:var(--cp);transform:none}
