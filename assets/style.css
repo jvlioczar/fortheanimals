@@ -582,3 +582,9 @@ details.item summary:hover{background:#ffeb5b66}details.item[open]{background:#f
 @media(max-width:1180px){.menu .sub>summary{padding:7px 10px}.menu .sub-l{position:static;min-width:0;border:0;box-shadow:none;padding:2px 0 6px 14px;background:none}}
 .idioma{align-self:center;font:700 .78rem var(--mono,monospace);letter-spacing:.04em;color:var(--tinta);text-decoration:none;border:1.5px solid var(--tinta);border-radius:99px;padding:5px 9px;margin-left:6px;background:var(--cartao)}
 .idioma:hover,.idioma:focus-visible{background:var(--amarelo)}
+/* Menu completo no computador: espaço entre itens um pouco menor para caber o item Sobre sem encostar na busca */
+@media(min-width:1181px){.menu{gap:0}.menu a{padding:7px 7px}.menu .sub>summary{padding:7px 8px}}
+/* Celular: a fileira de letras da lista fica fixa ao rolar e solta quando o bloco de argumentos acaba (o app.js calcula quanto da barra sobe) */
+@media(max-width:760px){.barra-f{position:sticky;top:var(--barra-top,80px);padding-bottom:6px}}
+/* Celular estreito: cabeçalho cabe em 375px sem empurrar o botão do menu para fora da tela */
+@media(max-width:420px){.marca{font-size:.84rem;padding-right:12px;gap:8px}.bbusca{padding:7px 11px}.idioma{margin-left:0}.hamb{margin-right:0}}

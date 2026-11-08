@@ -49,6 +49,15 @@
   if (hamb) hamb.addEventListener('click', function () { menu.classList.toggle('aberto'); hamb.setAttribute('aria-expanded', menu.classList.contains('aberto')); alturaMenu(); });
   window.addEventListener('resize', alturaMenu);
   window.addEventListener('scroll', alturaMenu, { passive: true });
+  // Barra de filtros da lista: no celular, só a fileira de letras fica fixa ao rolar; o resto sobe com a página.
+  var barraF = $('.barra-f'), guiasF = barraF && barraF.querySelector('.guias');
+  var topoBarra = function () {
+    if (!guiasF) return;
+    var cab = $('.topo'), fim = cab ? cab.getBoundingClientRect().bottom : 0;
+    var esconde = barraF.offsetHeight - guiasF.offsetHeight - 6;
+    barraF.style.setProperty('--barra-top', window.innerWidth <= 760 ? Math.round(fim - esconde) + 'px' : '');
+  };
+  topoBarra(); window.addEventListener('resize', topoBarra); window.addEventListener('load', topoBarra);
   // Grupos do menu: só um aberto por vez; fecham ao clicar fora ou com Esc.
   var subs = document.querySelectorAll('.menu .sub');
   subs.forEach(function (d) { d.addEventListener('toggle', function () { if (d.open) subs.forEach(function (o) { if (o !== d) o.open = false; }); }); });
