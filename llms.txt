@@ -2,20 +2,40 @@
 
 > The argument guide for animal advocates systematically catalogs every idea used to exploit, harm or kill animals or to avoid helping them, with a thorough explanation of the objections and biases of people who oppose veganism and antispeciesism.
 
-## Main pages
-- [Start here](https://fortheanimals.biblioverse.org/start-here.html)
-- [All arguments](https://fortheanimals.biblioverse.org/#arguments)
-- [Simulated debate](https://fortheanimals.biblioverse.org/debate.html)
-- [Practice answers](https://fortheanimals.biblioverse.org/practice.html)
-- [Stop saying this: weak vegan arguments and better ways to say them](https://fortheanimals.biblioverse.org/stop-saying.html)
-- [Political objections](https://fortheanimals.biblioverse.org/political-objections.html)
-- [Beyond veganism](https://fortheanimals.biblioverse.org/beyond-veganism.html)
-- [The 14 families](https://fortheanimals.biblioverse.org/families.html)
-- [The anti-vegan line of reasoning](https://fortheanimals.biblioverse.org/reasoning.html)
-- [Map of connections](https://fortheanimals.biblioverse.org/map.html)
-- [Fallacies](https://fortheanimals.biblioverse.org/fallacies.html)
-- [Biases](https://fortheanimals.biblioverse.org/biases.html)
-- [Glossary](https://fortheanimals.biblioverse.org/glossary.html)
-- [Library](https://fortheanimals.biblioverse.org/library.html)
+A free, open site, with no sign-up. Each argument has a page with the strongest version of the objection, what it gets right, where it fails, a short answer and the sources.
+
+## How to use
+
+- [Start here](https://fortheanimals.biblioverse.org/start-here.html): the sentience criterion, the guide's commitments and the difference between direct and indirect arguments
+- [About the guide](https://fortheanimals.biblioverse.org/about.html): what the project is, how sources are handled and what tone it takes
+
+## Arguments
+
+- [All arguments](https://fortheanimals.biblioverse.org/#arguments): the 213 arguments used against veganism and antispeciesism, each with its main flaw
+- [The families](https://fortheanimals.biblioverse.org/families.html): the arguments grouped by their underlying question and dominant error
+- [The anti-vegan line of reasoning](https://fortheanimals.biblioverse.org/reasoning.html): where the conversation goes after each objection is answered
+- [Map of connections](https://fortheanimals.biblioverse.org/map.html): the chains of objections and the three roots where almost every conversation ends
+- [Political objections](https://fortheanimals.biblioverse.org/political-objections.html): what each ethical or political theory says to exclude animals, and why that contradicts its own principle
+
+## Errors and vocabulary
+
+- [Fallacies](https://fortheanimals.biblioverse.org/fallacies.html): the logical errors that explain much of the catalogue
+- [Biases](https://fortheanimals.biblioverse.org/biases.html): the psychological mechanisms that make these arguments convincing
+- [Glossary](https://fortheanimals.biblioverse.org/glossary.html): the terms of animal ethics, veganism and the debate on animal exploitation
+
+## For the movement itself
+
+- [Stop saying this](https://fortheanimals.biblioverse.org/stop-saying.html): 64 arguments used by vegans that do not survive scrutiny, and how to say them better
+- [Beyond veganism](https://fortheanimals.biblioverse.org/beyond-veganism.html): antispeciesism and sentientism, wild animals, digital minds and the currents of the movement
+
+## Practice
+
+- [Simulated debate](https://fortheanimals.biblioverse.org/debate.html): pick the best answer and see where the conversation goes
+- [Practice answers](https://fortheanimals.biblioverse.org/practice.html): cards with the objection on one side and the main flaw on the other
+- [Library](https://fortheanimals.biblioverse.org/library.html): books and websites for learning to argue for animals
+
+## Full list
+
+- [Every argument, with its main flaw](https://fortheanimals.biblioverse.org/llms-full.txt)
 
 Portuguese version: https://pelosanimais.biblioverse.org/
