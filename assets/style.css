@@ -588,3 +588,11 @@ details.item summary:hover{background:#ffeb5b66}details.item[open]{background:#f
 @media(max-width:760px){.barra-f{position:sticky;top:var(--barra-top,80px);padding-bottom:6px}}
 /* Celular estreito: cabeçalho cabe em 375px sem empurrar o botão do menu para fora da tela */
 @media(max-width:420px){.marca{font-size:.84rem;padding-right:12px;gap:8px}.bbusca{padding:7px 11px}.idioma{margin-left:0}.hamb{margin-right:0}}
+
+.glos-filtros input{flex:1 1 240px}.glos-filtros .sel{flex:0 1 260px}#gn{font-size:.9rem;color:var(--tinta2)}
+.glos-az{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 18px}.glos-az a{min-width:34px;text-align:center;padding:5px 8px;border:1.5px solid var(--tinta);border-radius:8px;font:700 .9rem var(--sans);text-decoration:none;color:var(--tinta);background:var(--cartao)}.glos-az a:hover{background:var(--amarelo,#ffeb5b)}.glos-az a.off{opacity:.3;pointer-events:none}
+.glos-letra>h2{margin:26px 0 8px;font-size:1.7rem;border-bottom:3px solid var(--tinta);padding-bottom:2px}
+.glos-item{padding:14px 0;border-bottom:1px solid var(--linha)}.glos-item[hidden],.glos-letra[hidden]{display:none}
+.glos-item h3{margin:0 0 4px;font-size:1.15rem}.glos-item h3 a{color:var(--tinta);text-decoration:none}.glos-item h3 a:hover{text-decoration:underline}
+.glos-def{margin:0 0 6px}.glos-com{margin:0 0 6px;padding-left:12px;border-left:4px solid #ffeb5b;color:var(--tinta2)}
+.glos-links{margin:0 0 6px;padding-left:18px;font-size:.92rem}.glos-sec{margin:0;font:600 .72rem var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--tinta2);opacity:.8}

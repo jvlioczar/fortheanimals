@@ -15,6 +15,7 @@
 - [Map of connections](https://fortheanimals.biblioverse.org/map.html)
 - [Fallacies](https://fortheanimals.biblioverse.org/fallacies.html)
 - [Biases](https://fortheanimals.biblioverse.org/biases.html)
+- [Glossary](https://fortheanimals.biblioverse.org/glossary.html)
 - [Library](https://fortheanimals.biblioverse.org/library.html)
 
 Portuguese version: https://pelosanimais.biblioverse.org/
