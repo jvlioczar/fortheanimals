@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 213 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 214 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -31,6 +31,7 @@ Do animals count morally?
 - [A23. Morality exists to protect us from each other](https://fortheanimals.biblioverse.org/arguments/morality-exists-to-protect-us-from-each-other.html): It would also exclude babies and vulnerable people; and explaining where a practice came from does not justify it
 - [A24. Species is biology, race is a social construct](https://fortheanimals.biblioverse.org/arguments/species-is-biology-race-is-a-social-construct.html): A biological criterion can be as unjust as a social one: what makes discrimination unjust is giving someone's interests biased weight
 - [A25. Animals don't know they're going to die, so killing them is fine](https://fortheanimals.biblioverse.org/arguments/animals-dont-know-theyre-going-to-die-so-killing-them-is-fine.html): What's bad about death is what it takes, not the fear of it: the same reasoning would allow killing babies, people with dementia or people who are asleep
+- [A26. There are different degrees of consciousness, so less conscious animals matter less](https://fortheanimals.biblioverse.org/arguments/there-are-different-degrees-of-consciousness-so-less-conscious.html): Minds differ in profile, not in position on a single ruler; applied to humans, the criterion would downgrade babies and people with cognitive disabilities; and a smaller weight still outweighs the taste of a dish
 
 ## B. Harm, death and welfare (Part DIR)
 
