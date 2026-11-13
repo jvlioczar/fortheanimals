@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 214 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 217 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -285,6 +285,9 @@ Should we help, not just stop harming?
 - [N14. Sentientists want to get rid of forests](https://fortheanimals.biblioverse.org/arguments/sentientists-want-to-get-rid-of-forests.html): Straw man: the real proposals are research, targeted help and caution, and recognizing that there is suffering in a place isn't proposing to destroy it
 - [N15. Sentientists give the same weight to insects, invertebrates and mammals](https://fortheanimals.biblioverse.org/arguments/sentientists-give-the-same-weight-to-insects-invertebrates-and-mammals.html): Confuses equal consideration with equal weight: similar interests weigh the same, and each being's weight depends on how much it can feel, which is uncertain but not zero
 - [N16. Sentientists defend parasitism](https://fortheanimals.biblioverse.org/arguments/sentientists-defend-parasitism.html): Incomplete count: without treatment many parasites die with the host, death is only a harm to those who feel and would have a good life, and preventing is not killing
+- [N17. We have to worry about future humans, not about animals](https://fortheanimals.biblioverse.org/arguments/we-have-to-worry-about-future-humans-not-about-animals.html): It has already accepted the hard part, that future beings count; what is missing is why, once that future arrives, only the humans in it would count, and most of those who will feel will not be human
+- [N18. There's no way to plan for the long term, since we can't predict a distant future](https://fortheanimals.biblioverse.org/arguments/theres-no-way-to-plan-for-the-long-term-since-we-cant-predict-a.html): It works against plans that depend on getting one scenario right, not against actions that pay off in almost all of them; and uncertainty cuts both ways
+- [N19. The future will certainly be better, so there's no need to worry so much](https://fortheanimals.biblioverse.org/arguments/the-future-will-certainly-be-better-so-theres-no-need-to-worry-so-much.html): Moral progress is not automatic: every advance had someone making it happen; and with animals the recent trend runs the other way, because power grew without consideration keeping up
 
 ## Stop saying this
 
@@ -384,4 +387,5 @@ Should we help, not just stop harming?
 - [Sentience in extraterrestrials, plants and other forms of life](https://fortheanimals.biblioverse.org/beyond/extraterrestrials.html): There is no evidence of life beyond Earth, let alone sentient life, and no robust evidence that plants or fungi feel. Both questions test whether our criterion is really a criterion, and what we would do if the evidence changed.
 - [What supports animal ethics, and what weakens it](https://fortheanimals.biblioverse.org/beyond/foundations.html): Critical reason, relevance, impartiality and sentience support veganism and animal ethics. Partiality, relativism, tribalism, ableism, making abstractions sacred and weak will weaken them.
 - [Restraint with indirect arguments](https://fortheanimals.biblioverse.org/beyond/direct-arguments.html): Just as vegans should be careful when criticizing other vegans, those who use health and environment arguments should be careful not to strengthen anthropocentrism and environmentalism, which work against animals.
+- [The common minimum: the point of convergence](https://fortheanimals.biblioverse.org/beyond/common-minimum.html): Someone who rejects the whole conclusion can almost always accept part of it. Showing that part is not giving up what you argue for: it is not demanding that people change their worldview before taking the first step.
 - [The currents of the vegan movement](https://fortheanimals.biblioverse.org/beyond/currents-of-veganism.html): All vegans want the end of animal exploitation. The currents disagree about why, with whom and how to get there. A map of the ends, the means and the main debates.
