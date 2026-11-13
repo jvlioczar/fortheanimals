@@ -45,15 +45,38 @@
   barra.innerHTML = '<button type="button" data-s="imagem">Share passage</button><button type="button" data-s="texto">Copy with the source</button>';
   document.body.appendChild(barra);
 
-  var trechoAtual = '';
+  var trechoAtual = '', trechoBruto = '';
+  /* tira as remissões a outros argumentos — (A7, A23), (ver A5), Ligado a B8 —, que só
+     fazem sentido dentro do site: some o parêntese ou a frase em que elas aparecem */
+  var semCodigos = function (r) {
+    var f = r.cloneContents(), M = '\u0001', B = '\u0002';
+    $$('a.ref', f).forEach(function (a) { a.parentNode.replaceChild(document.createTextNode(M), a); });
+    $$('p, li, h1, h2, h3, h4, blockquote, figcaption, td, th, div', f).forEach(function (el) {
+      el.insertBefore(document.createTextNode(B), el.firstChild);
+      el.appendChild(document.createTextNode(B));
+    });
+    var partes = f.textContent.split(B).map(function (parte) {
+      return parte
+        .replace(/\s+/g, ' ')
+        .replace(/\s*\([^()]*\u0001[^()]*\)/g, '')      /* (A7, A23), (ver A5), (que leva a B1) */
+        .replace(/[^.!?…]*\u0001[^.!?…]*(?:[.!?…]+)?/g, '') /* Ligado a B8, É o caso de C8 */
+        .trim();
+    });
+    return partes.filter(function (x) { return x; }).join(' ')
+      .replace(/\s+([.,;:!?)\]])/g, '$1')
+      .replace(/\(\s+/g, '(')
+      .replace(/\s+/g, ' ')
+      .trim();
+  };
   var leSel = function () {
     var s = window.getSelection();
     if (!s || s.isCollapsed || !s.rangeCount) return null;
     var r = s.getRangeAt(0);
     if (!raiz.contains(r.commonAncestorContainer)) return null;
-    var t = s.toString().replace(/\s+/g, ' ').trim();
+    var bruto = s.toString().replace(/\s+/g, ' ').trim();
+    var t = semCodigos(r);                 /* so a remissao foi marcada: nada a compartilhar */
     if (t.length < 3) return null;
-    return { t: t, rect: r.getBoundingClientRect() };
+    return { t: t, bruto: bruto, rect: r.getBoundingClientRect() };
   };
   var posiciona = function (rect) {
     barra.hidden = false;
@@ -64,7 +87,7 @@
   var mostra = function () {
     var s = leSel();
     if (!s) { barra.hidden = true; return; }
-    trechoAtual = s.t; posiciona(s.rect);
+    trechoAtual = s.t; trechoBruto = s.bruto; posiciona(s.rect);
   };
   var tSel;
   document.addEventListener('selectionchange', function () { clearTimeout(tSel); tSel = setTimeout(mostra, 220); });
@@ -79,7 +102,7 @@
   barra.addEventListener('click', function (ev) {
     var b = ev.target.closest('button'); if (!b) return;
     if (b.dataset.s === 'texto') copiar(credito(), b);
-    else { compartilha(trechoAtual); barra.hidden = true; }
+    else { compartilha(trechoAtual, trechoBruto); barra.hidden = true; }
   });
 
   /* ---------- link direto para o trecho (fragmento de texto) ---------- */
@@ -201,7 +224,8 @@
     x.fillText(SITE, m, yUrl);
   };
 
-  var compartilha = function (t) {
+  var compartilha = function (t, bruto) {
+    bruto = bruto || t;
     var fmt = FORMATOS[0];
     var opcoes = FORMATOS.map(function (f, k) {
       return '<button type="button" class="chip-fmt' + (k ? '' : ' on') + '" data-f="' + f.k + '" aria-pressed="' + (k ? 'false' : 'true') + '">' + f.r + '</button>';
@@ -239,12 +263,12 @@
         }, function () { bt.textContent = 'Could not copy, download it'; });
       });
     });
-    $('[data-k="link"]', c).addEventListener('click', function () { copiar(linkTrecho(t), this); });
+    $('[data-k="link"]', c).addEventListener('click', function () { copiar(linkTrecho(bruto), this); });
     var sh = $('[data-k="share"]', c);
     if (sh) sh.addEventListener('click', function () {
       cv.toBlob(function (b) {
         var arq = new File([b], nomeArq(), { type: 'image/png' });
-        var dados = { title: titulo, text: credito(), url: linkTrecho(t) };
+        var dados = { title: titulo, text: credito(), url: linkTrecho(bruto) };
         if (navigator.canShare && navigator.canShare({ files: [arq] })) dados.files = [arq];
         navigator.share(dados).catch(function () {});
       });
