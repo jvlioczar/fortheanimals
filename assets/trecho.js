@@ -122,6 +122,24 @@
     });
   };
 
+  /* quebra um texto em linhas que cabem na largura; corta só se passar do número de linhas */
+  var linhasDe = function (x, txt, fonte, largura, maxLinhas) {
+    x.font = fonte;
+    var ps = txt.split(' '), ls = [], l = '';
+    ps.forEach(function (w) {
+      var tst = l ? l + ' ' + w : w;
+      if (x.measureText(tst).width > largura && l) { ls.push(l); l = w; } else l = tst;
+    });
+    if (l) ls.push(l);
+    if (maxLinhas && ls.length > maxLinhas) {
+      ls = ls.slice(0, maxLinhas);
+      var u = ls[maxLinhas - 1];
+      while (x.measureText(u + '…').width > largura && u.length > 4) u = u.replace(/\s*\S$/, '');
+      ls[maxLinhas - 1] = u.replace(/[\s,;:.]+$/, '') + '…';
+    }
+    return ls;
+  };
+
   var desenha = function (cv, t) {
     var x = cv.getContext('2d'), W = cv.width, H = cv.height;
     var m = Math.round(W * 0.083), largura = W - m * 2, mi = Math.round(W * 0.037);
@@ -131,41 +149,55 @@
     x.beginPath();
     if (x.roundRect) x.roundRect(mi, mi, W - mi * 2, H - mi * 2, 36); else x.rect(mi, mi, W - mi * 2, H - mi * 2);
     x.fill(); x.stroke();
-    /* linhas de referência, de baixo para cima, sempre dentro da moldura */
-    var mf = H - mi;
-    var yUrl = Math.round(mf - W * 0.05), ySec = Math.round(yUrl - W * 0.042), yTit = Math.round(ySec - W * 0.044), yBar = Math.round(yTit - W * 0.04);
+
+    /* ---- rodapé: medido antes, para o trecho usar só o espaço que sobra ---- */
+    var fTit = '700 ' + Math.round(W * 0.03) + 'px Inter, system-ui, sans-serif';
+    var fSec = '500 ' + Math.round(W * 0.025) + 'px Inter, system-ui, sans-serif';
+    var fUrl = '700 ' + Math.round(W * 0.025) + 'px "JetBrains Mono", ui-monospace, monospace';
+    var lsTit = linhasDe(x, (codigo ? codigo + '. ' : '') + titulo, fTit, largura, 2);
+    var lsSec = secao ? linhasDe(x, secao, fSec, largura, 1) : [];
+    var altTit = Math.round(W * 0.042), altSec = Math.round(W * 0.036);
+    var mf = H - mi - Math.round(W * 0.05);                     /* base do texto do rodapé */
+    var yUrl = mf;
+    var ySec = yUrl - (lsSec.length ? Math.round(W * 0.042) : 0);
+    var yTitUlt = (lsSec.length ? ySec : yUrl) - Math.round(W * 0.042);   /* linha de baixo do título */
+    var yTit = yTitUlt - altTit * (lsTit.length - 1);                     /* primeira linha do título */
+    var yBar = yTit - altTit - Math.round(W * 0.012);
+
+    /* ---- cabeçalho: logo e nome ---- */
     var topo = Math.round(mi + W * 0.085);
-    var y1 = Math.round(topo + W * 0.06), y2 = Math.round(yBar - W * 0.05);
-    x.strokeStyle = LINHA; x.lineWidth = 2;
-    for (var ly = y1; ly < y2; ly += Math.round(W * 0.062)) { x.beginPath(); x.moveTo(m, ly); x.lineTo(W - m, ly); x.stroke(); }
-    /* marca: logo à esquerda e o nome em duas linhas ao lado */
     var le = W * 0.0028, ly0 = Math.round(topo - le * 20);
     logo(x, m, ly0, le);
     var tx = Math.round(m + le * 40 + W * 0.022);
     x.fillStyle = TINTA; x.font = '700 ' + Math.round(W * 0.029) + 'px Inter, system-ui, sans-serif';
     x.fillText('For the Animals', tx, Math.round(ly0 + le * 15));
     x.fillText('An Argument Guide', tx, Math.round(ly0 + le * 15 + W * 0.038));
-    /* o trecho, centrado no espaço que sobra */
-    var alturaMax = y2 - y1, tam = Math.round(W * 0.058), linhas, alt;
-    var quebra = function () {
-      var ps = t.split(' '), ls = [], l = '';
-      x.font = '600 ' + tam + 'px "Mozilla Headline", Georgia, serif';
-      ps.forEach(function (w) { var tst = l ? l + ' ' + w : w; if (x.measureText(tst).width > largura && l) { ls.push(l); l = w; } else l = tst; });
-      if (l) ls.push(l); return ls;
-    };
-    do { linhas = quebra(); alt = tam * 1.34; if (linhas.length * alt <= alturaMax || tam <= 26) break; tam -= 3; } while (true);
-    var max = Math.floor(alturaMax / alt);
-    if (linhas.length > max) { linhas = linhas.slice(0, max); linhas[max - 1] = linhas[max - 1].replace(/\s+\S*$/, '') + '…'; }
+
+    /* ---- folha pautada ---- */
+    var y1 = Math.round(topo + W * 0.06), y2 = yBar - Math.round(W * 0.035);
+    x.strokeStyle = LINHA; x.lineWidth = 2;
+    for (var ly = y1; ly < y2; ly += Math.round(W * 0.062)) { x.beginPath(); x.moveTo(m, ly); x.lineTo(W - m, ly); x.stroke(); }
+
+    /* ---- o trecho: diminui a letra até caber, e só corta no limite ---- */
+    var alturaMax = y2 - y1, tam = Math.round(W * 0.06), minimo = Math.round(W * 0.021), linhas, alt;
+    while (true) {
+      linhas = linhasDe(x, t, '600 ' + tam + 'px "Mozilla Headline", Georgia, serif', largura, 0);
+      alt = Math.round(tam * 1.32);
+      if (linhas.length * alt <= alturaMax || tam <= minimo) break;
+      tam -= 2;
+    }
+    var max = Math.max(1, Math.floor(alturaMax / alt));
+    if (linhas.length > max) linhas = linhasDe(x, t, '600 ' + tam + 'px "Mozilla Headline", Georgia, serif', largura, max);
     x.fillStyle = TINTA; x.font = '600 ' + tam + 'px "Mozilla Headline", Georgia, serif';
     var y0 = y1 + (alturaMax - linhas.length * alt) / 2 + tam * 0.82;
     linhas.forEach(function (l, k) { x.fillText(l, m, y0 + k * alt); });
-    /* rodapé: de onde veio o trecho */
-    var corta = function (txt, fnt) { x.font = fnt; if (x.measureText(txt).width <= largura) return txt; while (x.measureText(txt + '…').width > largura && txt.length > 4) txt = txt.slice(0, -1); return txt + '…'; };
+
+    /* ---- rodapé ---- */
     x.fillStyle = AMARELO; x.fillRect(m, yBar, Math.round(W * 0.075), 8);
-    x.fillStyle = TINTA;
-    x.fillText(corta((codigo ? codigo + '. ' : '') + titulo, '700 ' + Math.round(W * 0.03) + 'px Inter, system-ui, sans-serif'), m, yTit);
-    if (secao) { x.fillStyle = '#4f6346'; x.fillText(corta(secao, '500 ' + Math.round(W * 0.025) + 'px Inter, system-ui, sans-serif'), m, ySec); }
-    x.fillStyle = TINTA; x.font = '700 ' + Math.round(W * 0.025) + 'px "JetBrains Mono", ui-monospace, monospace';
+    x.fillStyle = TINTA; x.font = fTit;
+    lsTit.forEach(function (l, k) { x.fillText(l, m, yTit + k * altTit); });
+    if (lsSec.length) { x.fillStyle = '#4f6346'; x.font = fSec; x.fillText(lsSec[0], m, ySec); }
+    x.fillStyle = TINTA; x.font = fUrl;
     x.fillText(SITE, m, yUrl);
   };
 
