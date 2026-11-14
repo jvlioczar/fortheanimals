@@ -119,7 +119,7 @@
     { k: 'quadrado', w: 1080, h: 1080, r: 'Square 1:1' },
     { k: 'story', w: 1080, h: 1920, r: 'Story 9:16' }
   ];
-  var TINTA = '#0a3703', CREME = '#fcfaf5', AMARELO = '#ffeb5b', LINHA = '#cde1f3';
+  var TINTA = '#0a3703', CREME = '#fcfaf5', AMARELO = '#ffeb5b';
 
   /* o logo do guia: caderno com o focinho, no mesmo desenho do cabeçalho */
   var logo = function (x, px, py, esc) {
@@ -166,7 +166,7 @@
   var desenha = function (cv, t) {
     var x = cv.getContext('2d'), W = cv.width, H = cv.height;
     var m = Math.round(W * 0.083), largura = W - m * 2, mi = Math.round(W * 0.037);
-    /* fundo azul claro e a folha pautada, como no site */
+    /* fundo azul claro e a folha, como no site */
     x.fillStyle = '#d6ecfb'; x.fillRect(0, 0, W, H);
     x.fillStyle = CREME; x.strokeStyle = TINTA; x.lineWidth = 6;
     x.beginPath();
@@ -196,10 +196,8 @@
     x.fillText('For the Animals', tx, Math.round(ly0 + le * 15));
     x.fillText('An Argument Guide', tx, Math.round(ly0 + le * 15 + W * 0.038));
 
-    /* ---- folha pautada ---- */
+    /* ---- área do trecho (folha lisa, sem pauta) ---- */
     var y1 = Math.round(topo + W * 0.06), y2 = yBar - Math.round(W * 0.035);
-    x.strokeStyle = LINHA; x.lineWidth = 2;
-    for (var ly = y1; ly < y2; ly += Math.round(W * 0.062)) { x.beginPath(); x.moveTo(m, ly); x.lineTo(W - m, ly); x.stroke(); }
 
     /* ---- o trecho: diminui a letra até caber, e só corta no limite ---- */
     var alturaMax = y2 - y1, tam = Math.round(W * 0.06), minimo = Math.round(W * 0.021), linhas, alt;
@@ -274,4 +272,165 @@
       });
     });
   };
+
+  /* ---------- cartão de resposta: o argumento, a resposta (curta ou em uma frase) e a pergunta de retorno ---------- */
+  var curtaEl = $('#curta-txt');
+  if (curtaEl) {
+    var textoDe = function (el) {
+      if (!el) return '';
+      var r = document.createRange(); r.selectNodeContents(el);
+      var t = semCodigos(r).replace(/^["“”]+|["“”]+$/g, '').trim();
+      return t.charAt(0).toUpperCase() + t.slice(1);
+    };
+    var teseEl = $$('.tese-c p').filter(function (p) { return !p.closest('.aviso-ind'); })[0];
+    var pergEl = $('.retorno p', curtaEl.closest('.painel') || document);
+    var RESP = { curta: textoDe(curtaEl), frase: textoDe(teseEl), pergunta: textoDe(pergEl) };
+
+    var desenhaResp = function (cv, o) {
+      var x = cv.getContext('2d'), W = cv.width, H = cv.height;
+      var m = Math.round(W * 0.083), largura = W - m * 2, mi = Math.round(W * 0.037);
+      x.fillStyle = '#d6ecfb'; x.fillRect(0, 0, W, H);
+      x.fillStyle = CREME; x.strokeStyle = TINTA; x.lineWidth = 6;
+      x.beginPath();
+      if (x.roundRect) x.roundRect(mi, mi, W - mi * 2, H - mi * 2, 36); else x.rect(mi, mi, W - mi * 2, H - mi * 2);
+      x.fill(); x.stroke();
+
+      /* cabeçalho */
+      var topo = Math.round(mi + W * 0.085), le = W * 0.0028, ly0 = Math.round(topo - le * 20);
+      logo(x, m, ly0, le);
+      var tx = Math.round(m + le * 40 + W * 0.022);
+      x.fillStyle = TINTA; x.font = '700 ' + Math.round(W * 0.029) + 'px Inter, system-ui, sans-serif';
+      x.fillText('For the Animals', tx, Math.round(ly0 + le * 15));
+      x.fillText('An Argument Guide', tx, Math.round(ly0 + le * 15 + W * 0.038));
+
+      /* rodapé: a família e o endereço */
+      var fSec = '500 ' + Math.round(W * 0.025) + 'px Inter, system-ui, sans-serif';
+      var fUrl = '700 ' + Math.round(W * 0.025) + 'px "JetBrains Mono", ui-monospace, monospace';
+      var yUrl = H - mi - Math.round(W * 0.05);
+      var lsSec = secao ? linhasDe(x, (codigo ? codigo + ' · ' : '') + secao, fSec, largura, 1) : [];
+      var ySec = yUrl - Math.round(W * 0.042);
+      var yBar = (lsSec.length ? ySec : yUrl) - Math.round(W * 0.05);
+
+      /* miolo: tudo encolhe junto até caber entre o cabeçalho e o rodapé */
+      var y1 = Math.round(topo + W * 0.075), y2 = yBar - Math.round(W * 0.04), disp = y2 - y1;
+      var rot = '700 ' + Math.round(W * 0.021) + 'px "JetBrains Mono", ui-monospace, monospace', aRot = Math.round(W * 0.036);
+      var pad = Math.round(W * 0.035), lCaixa = largura - pad * 2;
+      var k = 1.4, A, R, P, tA, tR, tP, hA, hR, hP, gap;   /* começa grande e encolhe: o story usa a altura a mais */
+      while (true) {
+        tA = Math.round(W * 0.05 * k); tR = Math.round(W * 0.036 * k); tP = Math.round(W * 0.04 * k);
+        A = linhasDe(x, '“' + titulo + '”', '600 ' + tA + 'px "Mozilla Headline", Georgia, serif', largura, 4);
+        R = linhasDe(x, o.resp, '500 ' + tR + 'px Inter, system-ui, sans-serif', largura, 0);
+        P = o.perg ? linhasDe(x, o.perg, '600 ' + tP + 'px "Mozilla Headline", Georgia, serif', lCaixa, 0) : [];
+        gap = Math.round(W * 0.04 * Math.min(1.2, Math.max(k, 0.6)));
+        hA = A.length * Math.round(tA * 1.2);
+        hR = aRot + R.length * Math.round(tR * 1.42);
+        hP = P.length ? pad * 2 + aRot + P.length * Math.round(tP * 1.28) : 0;
+        if (hA + gap + hR + (hP ? gap + hP : 0) <= disp || k <= 0.5) break;
+        k -= 0.025;
+      }
+      var total = hA + gap + hR + (hP ? gap + hP : 0);
+      if (total > disp) {   /* no limite, a resposta é cortada, nunca a pergunta */
+        var cabe = Math.max(1, Math.floor((disp - (total - R.length * Math.round(tR * 1.42))) / Math.round(tR * 1.42)));
+        R = linhasDe(x, o.resp, '500 ' + tR + 'px Inter, system-ui, sans-serif', largura, cabe);
+        hR = aRot + R.length * Math.round(tR * 1.42); total = hA + gap + hR + (hP ? gap + hP : 0);
+      }
+      var y = y1 + Math.max(0, (disp - total) / 2);
+
+      /* o argumento */
+      x.fillStyle = TINTA; x.font = '600 ' + tA + 'px "Mozilla Headline", Georgia, serif';
+      A.forEach(function (l, i) { x.fillText(l, m, y + tA * 0.85 + i * Math.round(tA * 1.2)); });
+      y += hA + gap;
+
+      /* a resposta */
+      x.fillStyle = '#4f6346'; x.font = rot; x.fillText(o.rotulo.toUpperCase(), m, y + W * 0.02);
+      x.fillStyle = TINTA; x.font = '500 ' + tR + 'px Inter, system-ui, sans-serif';
+      R.forEach(function (l, i) { x.fillText(l, m, y + aRot + tR * 0.85 + i * Math.round(tR * 1.42)); });
+      y += hR;
+
+      /* a pergunta de retorno, num destaque amarelo */
+      if (hP) {
+        y += gap;
+        x.fillStyle = AMARELO; x.strokeStyle = TINTA; x.lineWidth = 4;
+        x.beginPath();
+        if (x.roundRect) x.roundRect(m, y, largura, hP, 24); else x.rect(m, y, largura, hP);
+        x.fill(); x.stroke();
+        x.fillStyle = TINTA; x.font = rot; x.fillText('ASK A QUESTION BACK', m + pad, y + pad + W * 0.02);
+        x.font = '600 ' + tP + 'px "Mozilla Headline", Georgia, serif';
+        P.forEach(function (l, i) { x.fillText(l, m + pad, y + pad + aRot + tP * 0.85 + i * Math.round(tP * 1.28)); });
+      }
+
+      /* rodapé */
+      x.fillStyle = AMARELO; x.fillRect(m, yBar, Math.round(W * 0.075), 8);
+      if (lsSec.length) { x.fillStyle = '#4f6346'; x.font = fSec; x.fillText(lsSec[0], m, ySec); }
+      x.fillStyle = TINTA; x.font = fUrl; x.fillText(SITE, m, yUrl);
+    };
+
+    var abreResp = function () {
+      var fmt = FORMATOS[0], qual = 'curta', comPerg = !!RESP.pergunta;
+      var chips = function (lista, attr, atual) {
+        return lista.map(function (f) { return '<button type="button" class="chip-fmt' + (f[0] === atual ? ' on' : '') + '" data-' + attr + '="' + f[0] + '" aria-pressed="' + (f[0] === atual ? 'true' : 'false') + '">' + f[1] + '</button>'; }).join('');
+      };
+      var c = modal('Share the answer',
+        '<p class="fmt-linha" role="group" aria-label="Which answer">' + chips([['curta', 'Short answer'], ['frase', 'In one sentence']], 'r', qual) + '</p>' +
+        (RESP.pergunta ? '<p class="fmt-linha"><label class="resp-perg"><input type="checkbox" checked> Include the question to ask back</label></p>' : '') +
+        '<p class="fmt-linha" role="group" aria-label="Image format">' + chips(FORMATOS.map(function (f) { return [f.k, f.r]; }), 'f', fmt.k) + '</p>' +
+        '<canvas class="cv-trecho" width="1080" height="1350" aria-label="Image with the answer"></canvas>' +
+        '<p class="jan-btns"><button type="button" class="btn" data-k="img">Download image</button>' +
+        '<button type="button" class="btn alt" data-k="copiar-img">Copy image</button>' +
+        '<button type="button" class="btn alt" data-k="texto">Copy as text</button>' +
+        (navigator.share ? '<button type="button" class="btn alt" data-k="share">Share…</button>' : '') + '</p>');
+      var cv = $('canvas', c);
+      var resp = function () { return qual === 'frase' && RESP.frase ? RESP.frase : RESP.curta; };
+      var rotulo = function () { return qual === 'frase' ? 'The answer in one sentence' : 'Short answer'; };
+      var pinta = function () { cv.width = fmt.w; cv.height = fmt.h; desenhaResp(cv, { resp: resp(), rotulo: rotulo(), perg: comPerg ? RESP.pergunta : '' }); };
+      var f = document.fonts && document.fonts.load
+        ? Promise.all([document.fonts.load('600 60px "Mozilla Headline"'), document.fonts.load('500 34px Inter'), document.fonts.load('700 28px "JetBrains Mono"')])
+        : Promise.resolve();
+      f.then(pinta, pinta);
+      var liga = function (attr, faz) {
+        $$('[data-' + attr + ']', c).forEach(function (b) {
+          b.addEventListener('click', function () {
+            faz(b.dataset[attr]);
+            $$('[data-' + attr + ']', c).forEach(function (o) { o.classList.toggle('on', o === b); o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+            pinta();
+          });
+        });
+      };
+      liga('r', function (v) { qual = v; });
+      liga('f', function (v) { fmt = FORMATOS.filter(function (x) { return x.k === v; })[0]; });
+      var cx = $('.resp-perg input', c);
+      if (cx) cx.addEventListener('change', function () { comPerg = cx.checked; pinta(); });
+      var link = location.origin + location.pathname;
+      var comoTexto = function () { return '“' + titulo + '”\n\n' + resp() + (comPerg && RESP.pergunta ? '\n\n' + RESP.pergunta : '') + '\n\n' + link; };
+      var nomeArq = function () { return 'answer-' + (codigo ? codigo.toLowerCase() + '-' : '') + fmt.k + '.png'; };
+      $('[data-k="img"]', c).addEventListener('click', function () { cv.toBlob(function (b) { baixar(nomeArq(), b); }); });
+      $('[data-k="texto"]', c).addEventListener('click', function () { copiar(comoTexto(), this); });
+      var ci = $('[data-k="copiar-img"]', c);
+      if (!(navigator.clipboard && window.ClipboardItem)) ci.remove();
+      else ci.addEventListener('click', function () {
+        var bt = this;
+        cv.toBlob(function (b) {
+          navigator.clipboard.write([new ClipboardItem({ 'image/png': b })]).then(function () {
+            var antes = bt.textContent; bt.textContent = 'Copied ✓'; setTimeout(function () { bt.textContent = antes; }, 1800);
+          }, function () { bt.textContent = 'Could not copy, download it'; });
+        });
+      });
+      var sh = $('[data-k="share"]', c);
+      if (sh) sh.addEventListener('click', function () {
+        cv.toBlob(function (b) {
+          var arq = new File([b], nomeArq(), { type: 'image/png' });
+          var dados = { title: titulo, text: comoTexto(), url: link };
+          if (navigator.canShare && navigator.canShare({ files: [arq] })) dados.files = [arq];
+          navigator.share(dados).catch(function () {});
+        });
+      });
+    };
+
+    /* o botão fica logo abaixo da pergunta de retorno (ou da resposta curta) */
+    var bot = document.createElement('p'); bot.className = 'resp-img';
+    bot.innerHTML = '<button type="button" class="btn">Make an image of the answer</button><small>The argument, the answer and the question to ask back in one image for social media.</small>';
+    var depois = (pergEl && pergEl.closest('.retorno')) || curtaEl.closest('.duas') || curtaEl;
+    depois.parentNode.insertBefore(bot, depois.nextSibling);
+    $('button', bot).addEventListener('click', abreResp);
+  }
 })();

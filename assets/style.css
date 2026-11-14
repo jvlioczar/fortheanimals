@@ -645,3 +645,6 @@ details.item summary:hover{background:#ffeb5b66}details.item[open]{background:#f
 .rac-rot small{display:block;color:var(--suave);font-size:.82rem;font-weight:400;margin-top:1px}
 .rac-rot .rac-ciclo{font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}
 .rac-qt{display:inline-block;margin-left:6px;font:700 .72rem var(--mono);background:var(--papel);border:1px solid var(--tinta);border-radius:99px;padding:0 6px;vertical-align:1px}
+/* cartão de resposta: botão abaixo da pergunta de retorno e opção de incluí-la */
+.resp-img{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 1.4em}.resp-img small{color:var(--suave);font-size:.88rem}
+.resp-perg{display:inline-flex;align-items:center;gap:8px;font-size:.95rem;cursor:pointer}.resp-perg input{width:18px;height:18px;accent-color:var(--tinta)}
