@@ -398,6 +398,10 @@ details.item summary:hover{background:#ffeb5b66}details.item[open]{background:#f
 .cabeca,.cena{margin-top:14px}
 .marca span{white-space:nowrap}
 @media(max-width:1340px){.bbusca kbd{display:none}.menu a{padding:7px 8px}}
+/* com 8 itens no menu, o cabeçalho (que tem largura máxima) fica apertado: no desktop a busca vira só a lupa, e entre
+   1181 e 1340 px o espaçamento dos itens diminui, para nada encostar na busca */
+@media(min-width:1181px){.topo .bbusca span,.topo .bbusca kbd{display:none}}
+@media(min-width:1181px) and (max-width:1340px){.menu{gap:0}.menu a,.menu .sub>summary{padding-left:6px;padding-right:6px}}
 .riscado span{text-decoration-thickness:1.5px}
 
 /* raciocínio antivegano */
