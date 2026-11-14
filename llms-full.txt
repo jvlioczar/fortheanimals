@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 222 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 223 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -117,6 +117,7 @@ What about the desert island?
 - [F8. What about the eggs from my rescued hen?](https://fortheanimals.biblioverse.org/arguments/what-about-the-eggs-from-my-rescued-hen.html): A rare, debatable case with no link to the industry; it doesn't legitimize buying
 - [F9. Would you eat an animal that died of natural causes?](https://fortheanimals.biblioverse.org/arguments/would-you-eat-an-animal-that-died-of-natural-causes.html): No one was killed, so the moral problem is much smaller; but that meat never reaches the market, and refusing to eat a body can be respect, as we do with humans
 - [F10. What about meat that gets thrown away?](https://fortheanimals.biblioverse.org/arguments/what-about-meat-that-gets-thrown-away.html): Eating without creating demand is a different case; it still reinforces seeing animals as food
+- [F11. Would you eat animals if someone paid you well?](https://fortheanimals.biblioverse.org/arguments/would-you-eat-animals-if-someone-paid-you-well.html): The same dilemma applies to any human cause and never proves it false; refusing on principle is coherent, and so is accepting in order to save far more victims
 
 ## G. Health and nutrition (Part IND)
 
