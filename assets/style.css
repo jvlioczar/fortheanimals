@@ -619,3 +619,29 @@ details.item summary:hover{background:#ffeb5b66}details.item[open]{background:#f
 .glos-ref{color:inherit;text-decoration:underline dotted;text-underline-offset:3px}.glos-ref:hover{text-decoration:underline solid}
 .glos-no-guia{margin:0 0 6px;display:flex;flex-wrap:wrap;gap:6px}.glos-guia{font:600 .82rem var(--sans);background:#fffad4;border:1.5px solid var(--tinta);border-radius:99px;padding:2px 10px;text-decoration:none;color:var(--tinta)}.glos-guia:hover{background:#ffeb5b}
 .glos-item:target{background:#fffad4;box-shadow:-10px 0 0 #fffad4,10px 0 0 #fffad4;border-radius:4px}
+/* raciocínio antivegano em árvore: ramos à esquerda, a resposta do argumento escolhido à direita */
+.rac{max-width:none}
+@media(min-width:900px){.rac:not([hidden]){display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:26px;align-items:start}.rac-dir{position:sticky;top:90px}}
+@media(max-width:899px){.rac-dir{margin-top:22px;scroll-margin-top:80px}.rac-cartao{scroll-margin-top:80px}}
+.rac-esq .ti{font:700 .75rem var(--mono);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.rac-dica{color:var(--suave);font-size:.92rem;margin:0 0 8px}
+.rac-esq .rac-bot{margin:0 0 12px}
+.rac-arv{background:#fff;border:1.5px solid var(--tinta);border-radius:16px;padding:14px 12px 14px 8px;overflow-x:auto}
+.rac-arv ul{list-style:none;margin:0;padding:0 0 0 22px}
+.rac-arv ul.rac-raiz{padding:0}
+.rac-no{position:relative;padding:3px 0 3px 0}
+.rac-arv ul ul>.rac-no::before{content:'';position:absolute;left:-12px;top:0;bottom:0;border-left:1.5px solid var(--suave)}
+.rac-arv ul ul>.rac-no:last-child::before{bottom:auto;height:21px}
+.rac-arv ul ul>.rac-no::after{content:'';position:absolute;left:-12px;top:21px;width:10px;border-top:1.5px solid var(--suave)}
+.rac-lin{display:flex;align-items:flex-start;gap:6px}
+.rac-tg{flex:none;width:26px;height:26px;margin-top:5px;border:1.5px solid var(--tinta);border-radius:8px;background:var(--papel);font:700 1rem/1 var(--mono);cursor:pointer;color:var(--tinta2);padding:0}
+.rac-tg:hover,.rac-tg:focus-visible{background:var(--amarelo)}
+.rac-tg[aria-expanded="true"]{background:#fffad4}
+.rac-tg.rac-folha{border-color:transparent;background:none;cursor:default;display:inline-flex;align-items:center;justify-content:center;color:var(--suave)}
+.rac-rot{flex:1;min-width:0;text-align:left;background:none;border:1.5px solid transparent;border-left:5px solid var(--c);border-radius:10px;padding:5px 10px;font:inherit;font-size:.95rem;color:var(--tinta2);cursor:pointer}
+.rac-rot:hover,.rac-rot:focus-visible{background:#fffad4;border-color:var(--tinta);border-left-color:var(--c)}
+.rac-lin.ativo .rac-rot{background:var(--amarelo);border-color:var(--tinta);border-left-color:var(--c);font-weight:600}
+.rac-rot b{font-family:var(--mono);margin-right:2px}
+.rac-rot small{display:block;color:var(--suave);font-size:.82rem;font-weight:400;margin-top:1px}
+.rac-rot .rac-ciclo{font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}
+.rac-qt{display:inline-block;margin-left:6px;font:700 .72rem var(--mono);background:var(--papel);border:1px solid var(--tinta);border-radius:99px;padding:0 6px;vertical-align:1px}

@@ -316,25 +316,61 @@
     marcaFolha();
   }
 
-  /* raciocínio antivegano: seguir a conversa de objeção em objeção */
+  /* raciocínio antivegano: a conversa como árvore. Depois de cada objeção podem vir várias; cada ramo se abre sob demanda. */
   var rd = $('#rac-dados');
   if (rd) {
-    var RD = JSON.parse(rd.textContent), trilha = [], caixa = $('#rac'), atual = $('#rac-atual'), lista = $('#rac-trilha'), sel = $('#rac-sel');
+    var RD = JSON.parse(rd.textContent), trilha = [], abertos = {}, caixa = $('#rac'), atual = $('#rac-atual'), lista = $('#rac-trilha'), sel = $('#rac-sel'), arv = $('#rac-arvore');
     var el = function (tag, cls, tx) { var x = document.createElement(tag); if (cls) x.className = cls; if (tx) x.textContent = tx; return x; };
+    var filhos = function (c) { return RD.n[c].p; };
+    var abrePara = function (cam) { for (var i = 1; i <= cam.length; i++) abertos[cam.slice(0, i).join('-')] = true; };
+    var escolhe = function (cam) { trilha = cam.slice(); abrePara(trilha); mostra(); };
+    var ramo = function (cam, motivo) {
+      var c = cam[cam.length - 1], n = RD.n[c], chave = cam.join('-'), ciclo = cam.slice(0, -1).indexOf(c) >= 0;
+      var li = el('li', 'rac-no'); li.style.setProperty('--c', n.cor);
+      var lin = el('div', 'rac-lin' + (chave === trilha.join('-') ? ' ativo' : ''));
+      var fs = ciclo ? [] : filhos(c);
+      if (fs.length) {
+        var t = el('button', 'rac-tg', abertos[chave] ? '−' : '+'); t.type = 'button';
+        t.setAttribute('aria-expanded', abertos[chave] ? 'true' : 'false');
+        t.setAttribute('aria-label', (abertos[chave] ? 'Collapse' : 'Open') + ' ' + fs.length + ' paths from ' + c);
+        t.addEventListener('click', function () { if (abertos[chave]) delete abertos[chave]; else abertos[chave] = true; desenha(); });
+        lin.appendChild(t);
+      } else lin.appendChild(el('span', 'rac-tg rac-folha', ciclo ? '↺' : n.raiz ? '●' : '·'));
+      var b = el('button', 'rac-rot'); b.type = 'button';
+      b.appendChild(el('b', '', c)); b.appendChild(document.createTextNode(' ' + n.f));
+      if (fs.length && !abertos[chave]) b.appendChild(el('span', 'rac-qt', String(fs.length)));
+      if (motivo) b.appendChild(el('small', '', motivo));
+      if (ciclo) b.appendChild(el('small', 'rac-ciclo', '↺ already came up in this branch'));
+      else if (n.raiz) b.appendChild(el('small', 'rac-ciclo', 'root'));
+      b.addEventListener('click', function () { escolhe(cam); if (window.matchMedia('(max-width:899px)').matches) atual.scrollIntoView({ block: 'start', behavior: 'smooth' }); });
+      lin.appendChild(b); li.appendChild(lin);
+      if (fs.length && abertos[chave]) {
+        var ul = el('ul');
+        fs.forEach(function (x) { ul.appendChild(ramo(cam.concat(x[0]), x[1])); });
+        li.appendChild(ul);
+      }
+      return li;
+    };
+    var desenha = function () {
+      arv.textContent = '';
+      if (!trilha.length) return;
+      var ul = el('ul', 'rac-raiz'); ul.appendChild(ramo([trilha[0]], '')); arv.appendChild(ul);
+    };
     var mostra = function () {
       var c = trilha[trilha.length - 1], n = RD.n[c];
       caixa.hidden = !c; if (!c) return;
+      desenha();
       lista.textContent = '';
       trilha.forEach(function (t, i) {
         var li = el('li'), b = el('button', '', t); b.type = 'button';
-        b.addEventListener('click', function () { trilha = trilha.slice(0, i + 1); mostra(); });
+        b.addEventListener('click', function () { escolhe(trilha.slice(0, i + 1)); });
         li.appendChild(b); lista.appendChild(li);
       });
       atual.textContent = ''; atual.style.setProperty('--c', n.cor);
-      var cab = el('p', 'rac-c'); cab.appendChild(el('span', 'cod', c)); if (n.raiz) cab.appendChild(el('span', 'selo', 'raiz'));
+      var cab = el('p', 'rac-c'); cab.appendChild(el('span', 'cod', c)); if (n.raiz) cab.appendChild(el('span', 'selo', 'root'));
       atual.appendChild(cab);
       atual.appendChild(el('h2', '', '"' + n.f + '"'));
-      var r = el('div', 'rac-resp'); r.appendChild(el('p', 'ti', n.cap ? 'Resposta curta' : 'Falha principal')); r.appendChild(el('p', '', n.r));
+      var r = el('div', 'rac-resp'); r.appendChild(el('p', 'ti', n.cap ? 'Short answer' : 'Main flaw')); r.appendChild(el('p', '', n.r));
       var a = el('a', '', n.cap ? 'Open the full chapter →' : 'Open the summary →'); a.href = n.u; r.appendChild(a);
       atual.appendChild(r);
       var vis = trilha.slice(0, -1);
@@ -345,7 +381,7 @@
           var d = RD.n[x[0]], b = el('button', 'rac-op'); b.type = 'button'; b.style.setProperty('--c', d.cor);
           var t = el('span', 'rac-op-t'); t.appendChild(el('b', '', x[0])); t.appendChild(document.createTextNode(' ' + d.f)); b.appendChild(t);
           b.appendChild(el('small', '', x[1] + (vis.indexOf(x[0]) >= 0 ? ' · already came up in this conversation' : '') + (d.raiz ? ' · root' : '')));
-          b.addEventListener('click', function () { trilha.push(x[0]); mostra(); atual.focus(); });
+          b.addEventListener('click', function () { escolhe(trilha.concat(x[0])); atual.focus(); });
           g.appendChild(b);
         });
         atual.appendChild(g);
@@ -357,8 +393,8 @@
             var d = RD.n[rz]; if (!d) return;
             var b = el('button', 'rac-op'); b.type = 'button'; b.style.setProperty('--c', d.cor);
             var t = el('span', 'rac-op-t'); t.appendChild(el('b', '', rz)); t.appendChild(document.createTextNode(' ' + d.f)); b.appendChild(t);
-            b.appendChild(el('small', '', 'Raiz'));
-            b.addEventListener('click', function () { trilha.push(rz); mostra(); });
+            b.appendChild(el('small', '', 'Root'));
+            b.addEventListener('click', function () { comeca(rz); });
             gr.appendChild(b);
           });
           atual.appendChild(gr);
@@ -366,15 +402,20 @@
       }
       try { history.replaceState(null, '', '#' + trilha.join('-')); } catch (e) {}
     };
-    var comeca = function (c) { if (!RD.n[c]) return; trilha = [c]; mostra(); caixa.scrollIntoView({ block: 'start' }); };
+    var comeca = function (c) { if (!RD.n[c]) return; abertos = {}; escolhe([c]); caixa.scrollIntoView({ block: 'start' }); };
     sel.addEventListener('change', function () { comeca(sel.value); });
     $$('[data-ini]').forEach(function (b) { b.addEventListener('click', function () { comeca(b.dataset.ini); }); });
-    $('#rac-volta').addEventListener('click', function () { if (trilha.length > 1) { trilha.pop(); mostra(); } });
-    $('#rac-zera').addEventListener('click', function () { trilha = []; mostra(); sel.value = ''; window.scrollTo(0, 0); });
+    $('#rac-volta').addEventListener('click', function () { if (trilha.length > 1) escolhe(trilha.slice(0, -1)); });
+    $('#rac-zera').addEventListener('click', function () { trilha = []; abertos = {}; mostra(); arv.textContent = ''; sel.value = ''; window.scrollTo(0, 0); });
+    $('#rac-mais').addEventListener('click', function () {
+      // abre mais um nível: todo ramo visível e fechado (que não seja repetição) passa a mostrar os seus caminhos
+      $$('.rac-tg[aria-expanded="false"]', arv).forEach(function (t) { t.click(); });
+    });
+    $('#rac-menos').addEventListener('click', function () { abertos = {}; abrePara(trilha); desenha(); });
     atual.tabIndex = -1;
     var doHash = function () {
       var h = location.hash.slice(1).split('-').filter(function (c) { return RD.n[c]; });
-      if (h.length && h.join('-') !== trilha.join('-')) { trilha = h; mostra(); }
+      if (h.length && h.join('-') !== trilha.join('-')) { if (h[0] !== trilha[0]) abertos = {}; escolhe(h); }
     };
     doHash(); window.addEventListener('hashchange', doHash);
   }
