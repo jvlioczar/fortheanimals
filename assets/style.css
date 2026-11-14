@@ -648,3 +648,7 @@ details.item summary:hover{background:#ffeb5b66}details.item[open]{background:#f
 /* cartão de resposta: botão abaixo da pergunta de retorno e opção de incluí-la */
 .resp-img{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 1.4em}.resp-img small{color:var(--suave);font-size:.88rem}
 .resp-perg{display:inline-flex;align-items:center;gap:8px;font-size:.95rem;cursor:pointer}.resp-perg input{width:18px;height:18px;accent-color:var(--tinta)}
+/* "Objeções políticas e éticas" alongou o menu: no computador, o cabeçalho flutuante fica um pouco mais largo que o conteúdo,
+   e entre 1181 e 1300 px a letra do menu diminui um pouco, para nada encostar na busca */
+@media(min-width:1181px){.topo-in{max-width:1290px}}
+@media(min-width:1181px) and (max-width:1300px){.menu a,.menu .sub>summary{font-size:.84rem}}
