@@ -15,27 +15,84 @@
       // campos já normalizados: título, outras formas, subtítulo, descrição e palavras do conteúdo
       j.forEach(function (d) { d.n = [norm(d.t), norm(d.k), norm(d.s), norm(d.d), d.c || '']; });
       dados = j; esperando.forEach(function (f) { f(); }); esperando = [];
-    });
+    }).catch(function () { pedindo = null; });   // se a rede falhar, a próxima tecla tenta de novo, em vez de travar a busca
   };
-  // Ordem: primeiro o título, depois outras formas e subtítulo, a descrição e, por fim, o conteúdo da página.
-  // Com várias palavras, todas precisam aparecer em algum lugar da página; cada uma soma o peso do campo mais forte em que aparece.
+  // Ordem em três faixas, sempre nesta prioridade:
+  //   1. todas as palavras no título;
+  //   2. todas as palavras em algum lugar do texto (outras formas, subtítulo, descrição, conteúdo);
+  //   3. palavras parecidas, para erros de digitação e variações ("vegetariano" acha "vegetarianos", "veganimo" acha "veganismo").
+  // Dentro de cada faixa, palavra inteira ou no começo de palavra vale mais do que no meio de outra ("ovo" antes de "novo").
   var PESOS = [50, 30, 25, 10, 1];
+  var acha = function (campo, termo) {               // 0 = não está; 1 = no meio de uma palavra; 2 = começo de palavra
+    var i = campo.indexOf(termo), r = 0;
+    while (i >= 0) {
+      if (i === 0 || /[^a-z0-9]/.test(campo.charAt(i - 1))) return 2;
+      r = 1; i = campo.indexOf(termo, i + 1);
+    }
+    return r;
+  };
+  var distancia = function (a, b, lim) {             // Levenshtein com limite: devolve lim + 1 se passar dele
+    if (Math.abs(a.length - b.length) > lim) return lim + 1;
+    var ant = [], i, j;
+    for (j = 0; j <= b.length; j++) ant[j] = j;
+    for (i = 1; i <= a.length; i++) {
+      var cur = [i], menor = i;
+      for (j = 1; j <= b.length; j++) {
+        cur[j] = Math.min(ant[j] + 1, cur[j - 1] + 1, ant[j - 1] + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1));
+        if (cur[j] < menor) menor = cur[j];
+      }
+      if (menor > lim) return lim + 1;
+      ant = cur;
+    }
+    return ant[b.length];
+  };
+  var separa = function (s) { return s.split(/[^a-z0-9]+/).filter(function (x) { return x.length >= 3; }); };
+  var parecida = function (d, termo) {               // 0 = nenhuma; senão, quanto mais perto de 1, mais parecida
+    if (termo.length < 4) return 0;
+    if (!d.w) d.w = [separa(d.n[0]), separa(d.n[1] + ' ' + d.n[2])];   // palavras do título; das outras formas e do subtítulo
+    var lim = termo.length >= 7 ? 2 : 1, melhor = 0;
+    for (var g = 0; g < 2; g++) {
+      for (var i = 0; i < d.w[g].length; i++) {
+        var w = d.w[g][i], dist = distancia(termo, w.length > termo.length + lim ? w.slice(0, termo.length + lim) : w, lim);
+        if (dist <= lim) { var v = (1 - dist / (lim + 1)) * (g === 0 ? 1 : 0.5); if (v > melhor) melhor = v; }   // no título vale mais
+      }
+    }
+    return melhor;
+  };
   var procura = function (texto, max) {
     var t = norm(texto).trim(), termos = t.split(/\s+/).filter(function (x) { return x.length >= 2; });
     if (!termos.length || !dados) return [];
     var achados = [];
     dados.forEach(function (d, ordem) {
-      var p = 0;
-      for (var i = 0; i < termos.length; i++) {
+      var i, c, k, faixa = 3, p = 0;
+      // faixa 1: todas no título
+      for (i = 0; i < termos.length; i++) { k = acha(d.n[0], termos[i]); if (!k) { faixa = 0; break; } p += k; }
+      if (faixa) {
+        if (termos.length > 1 && d.n[0].indexOf(t) >= 0) p += 10;   // a frase inteira, nessa ordem
+        achados.push({ d: d, f: 3, p: p, o: ordem }); return;
+      }
+      // faixa 2: todas em algum lugar do texto
+      faixa = 2; p = 0;
+      for (i = 0; i < termos.length; i++) {
         var melhor = 0;
-        for (var c = 0; c < 5; c++) if (d.n[c].indexOf(termos[i]) >= 0) { melhor = PESOS[c]; break; }
-        if (!melhor) return;
+        for (c = 0; c < 5; c++) { k = acha(d.n[c], termos[i]); if (k) { var v = PESOS[c] * (k === 2 ? 1 : 0.6); if (v > melhor) melhor = v; } }
+        if (!melhor) { faixa = 0; break; }
         p += melhor;
       }
-      if (termos.length > 1 && d.n[0].indexOf(t) >= 0) p += 40;  // a frase inteira no título vem antes
-      achados.push({ d: d, p: p, o: ordem });
+      if (faixa) { achados.push({ d: d, f: 2, p: p, o: ordem }); return; }
+      // faixa 3: cada palavra aparece ou tem uma parecida no título, nas outras formas ou no subtítulo
+      p = 0;
+      for (i = 0; i < termos.length; i++) {
+        var achou = 0;
+        for (c = 0; c < 5 && !achou; c++) if (acha(d.n[c], termos[i])) achou = 1;
+        if (!achou) achou = parecida(d, termos[i]) * 0.9;
+        if (!achou) return;
+        p += achou;
+      }
+      achados.push({ d: d, f: 1, p: p, o: ordem });
     });
-    achados.sort(function (a, b) { return b.p - a.p || a.o - b.o; });
+    // empate: o título mais curto primeiro ("Veganismo" antes de "Veganismo abolicionista")
+    achados.sort(function (a, b) { return b.f - a.f || b.p - a.p || a.d.t.length - b.d.t.length || a.o - b.o; });
     return achados.slice(0, max).map(function (x) { return x.d; });
   };
 
