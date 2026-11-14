@@ -273,19 +273,28 @@
     });
   };
 
-  /* ---------- cartão de resposta: o argumento, a resposta (curta ou em uma frase) e a pergunta de retorno ---------- */
-  var curtaEl = $('#curta-txt');
-  if (curtaEl) {
-    var textoDe = function (el) {
-      if (!el) return '';
-      var r = document.createRange(); r.selectNodeContents(el);
-      var t = semCodigos(r).replace(/^["“”]+|["“”]+$/g, '').trim();
-      return t.charAt(0).toUpperCase() + t.slice(1);
-    };
-    var teseEl = $$('.tese-c p').filter(function (p) { return !p.closest('.aviso-ind'); })[0];
+  /* ---------- cartão de resposta: o argumento, uma resposta e um destaque (a pergunta de retorno ou "diga melhor") ----------
+     Nos capítulos e nas objeções políticas, os textos vêm da página; no "Stop saying this", de #resp-dados. */
+  var textoDe = function (el) {
+    if (!el) return '';
+    var r = document.createRange(); r.selectNodeContents(el);
+    var t = semCodigos(r).replace(/^["“”]+|["“”]+$/g, '').trim();
+    return t.charAt(0).toUpperCase() + t.slice(1);
+  };
+  var RESP = null, ancora = null, dadosResp = $('#resp-dados');
+  if (dadosResp) {
+    RESP = JSON.parse(dadosResp.textContent);
+    ancora = $('.troca');
+  } else if ($('#curta-txt')) {
+    var curtaEl = $('#curta-txt'), teseEl = $('.tese-c[data-frase] p');   /* só os capítulos têm "a resposta em uma frase" */
     var pergEl = $('.retorno p', curtaEl.closest('.painel') || document);
-    var RESP = { curta: textoDe(curtaEl), frase: textoDe(teseEl), pergunta: textoDe(pergEl) };
-
+    RESP = { ops: [['curta', 'Short answer', 'Short answer', textoDe(curtaEl)]], cab: '', caixa: null, inclui: 'Include the question to ask back' };
+    if (teseEl) RESP.ops.push(['frase', 'In one sentence', 'The answer in one sentence', textoDe(teseEl)]);
+    if (pergEl) RESP.caixa = ['Ask a question back', textoDe(pergEl)];
+    ancora = (pergEl && pergEl.closest('.retorno')) || curtaEl.closest('.duas') || curtaEl;
+  }
+  if (RESP && ancora) {
+    var semPonto = titulo.replace(/\.+$/, '');   /* “Frase.” vira “Frase” */
     var desenhaResp = function (cv, o) {
       var x = cv.getContext('2d'), W = cv.width, H = cv.height;
       var m = Math.round(W * 0.083), largura = W - m * 2, mi = Math.round(W * 0.037);
@@ -303,7 +312,7 @@
       x.fillText('For the Animals', tx, Math.round(ly0 + le * 15));
       x.fillText('An Argument Guide', tx, Math.round(ly0 + le * 15 + W * 0.038));
 
-      /* rodapé: a família e o endereço */
+      /* rodapé: a seção e o endereço */
       var fSec = '500 ' + Math.round(W * 0.025) + 'px Inter, system-ui, sans-serif';
       var fUrl = '700 ' + Math.round(W * 0.025) + 'px "JetBrains Mono", ui-monospace, monospace';
       var yUrl = H - mi - Math.round(W * 0.05);
@@ -311,25 +320,26 @@
       var ySec = yUrl - Math.round(W * 0.042);
       var yBar = (lsSec.length ? ySec : yUrl) - Math.round(W * 0.05);
 
-      /* miolo: tudo encolhe junto até caber entre o cabeçalho e o rodapé */
+      /* miolo: tudo encolhe junto até caber entre o cabeçalho e o rodapé; começa grande para o story usar a altura a mais */
       var y1 = Math.round(topo + W * 0.075), y2 = yBar - Math.round(W * 0.04), disp = y2 - y1;
       var rot = '700 ' + Math.round(W * 0.021) + 'px "JetBrains Mono", ui-monospace, monospace', aRot = Math.round(W * 0.036);
+      var hCab = o.cab ? aRot : 0;
       var pad = Math.round(W * 0.035), lCaixa = largura - pad * 2;
-      var k = 1.4, A, R, P, tA, tR, tP, hA, hR, hP, gap;   /* começa grande e encolhe: o story usa a altura a mais */
+      var k = 1.4, A, R, P, tA, tR, tP, hA, hR, hP, gap;
       while (true) {
         tA = Math.round(W * 0.05 * k); tR = Math.round(W * 0.036 * k); tP = Math.round(W * 0.04 * k);
-        A = linhasDe(x, '“' + titulo + '”', '600 ' + tA + 'px "Mozilla Headline", Georgia, serif', largura, 4);
+        A = linhasDe(x, '“' + semPonto + '”', '600 ' + tA + 'px "Mozilla Headline", Georgia, serif', largura, 4);
         R = linhasDe(x, o.resp, '500 ' + tR + 'px Inter, system-ui, sans-serif', largura, 0);
-        P = o.perg ? linhasDe(x, o.perg, '600 ' + tP + 'px "Mozilla Headline", Georgia, serif', lCaixa, 0) : [];
+        P = o.caixa ? linhasDe(x, o.caixa[1], '600 ' + tP + 'px "Mozilla Headline", Georgia, serif', lCaixa, 0) : [];
         gap = Math.round(W * 0.04 * Math.min(1.2, Math.max(k, 0.6)));
-        hA = A.length * Math.round(tA * 1.2);
+        hA = hCab + A.length * Math.round(tA * 1.2);
         hR = aRot + R.length * Math.round(tR * 1.42);
         hP = P.length ? pad * 2 + aRot + P.length * Math.round(tP * 1.28) : 0;
         if (hA + gap + hR + (hP ? gap + hP : 0) <= disp || k <= 0.5) break;
         k -= 0.025;
       }
       var total = hA + gap + hR + (hP ? gap + hP : 0);
-      if (total > disp) {   /* no limite, a resposta é cortada, nunca a pergunta */
+      if (total > disp) {   /* no limite, a resposta é cortada, nunca o destaque */
         var cabe = Math.max(1, Math.floor((disp - (total - R.length * Math.round(tR * 1.42))) / Math.round(tR * 1.42)));
         R = linhasDe(x, o.resp, '500 ' + tR + 'px Inter, system-ui, sans-serif', largura, cabe);
         hR = aRot + R.length * Math.round(tR * 1.42); total = hA + gap + hR + (hP ? gap + hP : 0);
@@ -337,9 +347,10 @@
       var y = y1 + Math.max(0, (disp - total) / 2);
 
       /* o argumento */
+      if (o.cab) { x.fillStyle = '#b8460f'; x.font = rot; x.fillText(o.cab.toUpperCase(), m, y + W * 0.02); y += hCab; }
       x.fillStyle = TINTA; x.font = '600 ' + tA + 'px "Mozilla Headline", Georgia, serif';
       A.forEach(function (l, i) { x.fillText(l, m, y + tA * 0.85 + i * Math.round(tA * 1.2)); });
-      y += hA + gap;
+      y += hA - hCab + gap;
 
       /* a resposta */
       x.fillStyle = '#4f6346'; x.font = rot; x.fillText(o.rotulo.toUpperCase(), m, y + W * 0.02);
@@ -347,14 +358,14 @@
       R.forEach(function (l, i) { x.fillText(l, m, y + aRot + tR * 0.85 + i * Math.round(tR * 1.42)); });
       y += hR;
 
-      /* a pergunta de retorno, num destaque amarelo */
+      /* o destaque amarelo */
       if (hP) {
         y += gap;
         x.fillStyle = AMARELO; x.strokeStyle = TINTA; x.lineWidth = 4;
         x.beginPath();
         if (x.roundRect) x.roundRect(m, y, largura, hP, 24); else x.rect(m, y, largura, hP);
         x.fill(); x.stroke();
-        x.fillStyle = TINTA; x.font = rot; x.fillText('ASK A QUESTION BACK', m + pad, y + pad + W * 0.02);
+        x.fillStyle = TINTA; x.font = rot; x.fillText(o.caixa[0].toUpperCase(), m + pad, y + pad + W * 0.02);
         x.font = '600 ' + tP + 'px "Mozilla Headline", Georgia, serif';
         P.forEach(function (l, i) { x.fillText(l, m + pad, y + pad + aRot + tP * 0.85 + i * Math.round(tP * 1.28)); });
       }
@@ -366,13 +377,13 @@
     };
 
     var abreResp = function () {
-      var fmt = FORMATOS[0], qual = 'curta', comPerg = !!RESP.pergunta;
+      var fmt = FORMATOS[0], op = RESP.ops[0], comCaixa = !!RESP.caixa;
       var chips = function (lista, attr, atual) {
         return lista.map(function (f) { return '<button type="button" class="chip-fmt' + (f[0] === atual ? ' on' : '') + '" data-' + attr + '="' + f[0] + '" aria-pressed="' + (f[0] === atual ? 'true' : 'false') + '">' + f[1] + '</button>'; }).join('');
       };
       var c = modal('Share the answer',
-        '<p class="fmt-linha" role="group" aria-label="Which answer">' + chips([['curta', 'Short answer'], ['frase', 'In one sentence']], 'r', qual) + '</p>' +
-        (RESP.pergunta ? '<p class="fmt-linha"><label class="resp-perg"><input type="checkbox" checked> Include the question to ask back</label></p>' : '') +
+        (RESP.ops.length > 1 ? '<p class="fmt-linha" role="group" aria-label="Which answer">' + chips(RESP.ops, 'r', op[0]) + '</p>' : '') +
+        (RESP.caixa ? '<p class="fmt-linha"><label class="resp-perg"><input type="checkbox" checked> ' + RESP.inclui + '</label></p>' : '') +
         '<p class="fmt-linha" role="group" aria-label="Image format">' + chips(FORMATOS.map(function (f) { return [f.k, f.r]; }), 'f', fmt.k) + '</p>' +
         '<canvas class="cv-trecho" width="1080" height="1350" aria-label="Image with the answer"></canvas>' +
         '<p class="jan-btns"><button type="button" class="btn" data-k="img">Download image</button>' +
@@ -380,9 +391,7 @@
         '<button type="button" class="btn alt" data-k="texto">Copy as text</button>' +
         (navigator.share ? '<button type="button" class="btn alt" data-k="share">Share…</button>' : '') + '</p>');
       var cv = $('canvas', c);
-      var resp = function () { return qual === 'frase' && RESP.frase ? RESP.frase : RESP.curta; };
-      var rotulo = function () { return qual === 'frase' ? 'The answer in one sentence' : 'Short answer'; };
-      var pinta = function () { cv.width = fmt.w; cv.height = fmt.h; desenhaResp(cv, { resp: resp(), rotulo: rotulo(), perg: comPerg ? RESP.pergunta : '' }); };
+      var pinta = function () { cv.width = fmt.w; cv.height = fmt.h; desenhaResp(cv, { cab: RESP.cab, resp: op[3], rotulo: op[2], caixa: comCaixa ? RESP.caixa : null }); };
       var f = document.fonts && document.fonts.load
         ? Promise.all([document.fonts.load('600 60px "Mozilla Headline"'), document.fonts.load('500 34px Inter'), document.fonts.load('700 28px "JetBrains Mono"')])
         : Promise.resolve();
@@ -396,13 +405,13 @@
           });
         });
       };
-      liga('r', function (v) { qual = v; });
+      liga('r', function (v) { op = RESP.ops.filter(function (x) { return x[0] === v; })[0]; });
       liga('f', function (v) { fmt = FORMATOS.filter(function (x) { return x.k === v; })[0]; });
       var cx = $('.resp-perg input', c);
-      if (cx) cx.addEventListener('change', function () { comPerg = cx.checked; pinta(); });
+      if (cx) cx.addEventListener('change', function () { comCaixa = cx.checked; pinta(); });
       var link = location.origin + location.pathname;
-      var comoTexto = function () { return '“' + titulo + '”\n\n' + resp() + (comPerg && RESP.pergunta ? '\n\n' + RESP.pergunta : '') + '\n\n' + link; };
-      var nomeArq = function () { return 'answer-' + (codigo ? codigo.toLowerCase() + '-' : '') + fmt.k + '.png'; };
+      var comoTexto = function () { return (RESP.cab ? RESP.cab + ': ' : '') + '“' + semPonto + '”\n\n' + op[3] + (comCaixa && RESP.caixa ? '\n\n' + (RESP.cab ? RESP.caixa[0] + ': ' : '') + RESP.caixa[1] : '') + '\n\n' + link; };
+      var nomeArq = function () { return 'answer-' + (codigo ? codigo.toLowerCase() : location.pathname.split('/').pop().replace('.html', '')) + '-' + fmt.k + '.png'; };
       $('[data-k="img"]', c).addEventListener('click', function () { cv.toBlob(function (b) { baixar(nomeArq(), b); }); });
       $('[data-k="texto"]', c).addEventListener('click', function () { copiar(comoTexto(), this); });
       var ci = $('[data-k="copiar-img"]', c);
@@ -426,11 +435,10 @@
       });
     };
 
-    /* o botão fica logo abaixo da pergunta de retorno (ou da resposta curta) */
+    /* o botão fica logo abaixo do destaque (a pergunta de retorno ou "como dizer melhor") */
     var bot = document.createElement('p'); bot.className = 'resp-img';
-    bot.innerHTML = '<button type="button" class="btn">Make an image of the answer</button><small>The argument, the answer and the question to ask back in one image for social media.</small>';
-    var depois = (pergEl && pergEl.closest('.retorno')) || curtaEl.closest('.duas') || curtaEl;
-    depois.parentNode.insertBefore(bot, depois.nextSibling);
+    bot.innerHTML = '<button type="button" class="btn">Make an image of the answer</button><small>' + (RESP.dica || 'The argument, the answer and the question to ask back in one image for social media.') + '</small>';
+    ancora.parentNode.insertBefore(bot, ancora.nextSibling);
     $('button', bot).addEventListener('click', abreResp);
   }
 })();
