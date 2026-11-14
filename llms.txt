@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> Every objection deserves a good answer. 250+ arguments against veganism and antispeciesism, each in its strongest form, with what it gets right, where it fails and how to answer it. A guide for thinking carefully, talking better and standing up for animals.
+> Every objection deserves a good answer. A guide for animal advocates who want to talk better and stand up for sentient animals. It systematically catalogs every idea used to exploit, harm or kill animals, or to avoid helping them, and explains in depth the objections and biases of people who oppose veganism and antispeciesism. It is also for anyone who wants to think more clearly about the topic.
 
 A free, open site, with no sign-up. Each argument has a page with the strongest version of the objection, what it gets right, where it fails, a short answer and the sources.
 
@@ -11,7 +11,7 @@ A free, open site, with no sign-up. Each argument has a page with the strongest 
 
 ## Arguments
 
-- [All arguments](https://fortheanimals.biblioverse.org/#arguments): the 257 arguments used against veganism and antispeciesism, each with its main flaw
+- [All arguments](https://fortheanimals.biblioverse.org/#arguments): the 260 arguments used against veganism and antispeciesism, each with its main flaw
 - [The families](https://fortheanimals.biblioverse.org/families.html): the arguments grouped by their underlying question and dominant error
 - [Types of exploitation](https://fortheanimals.biblioverse.org/exploitation.html): the arguments grouped by practice: food, clothing, research, entertainment, sport, fishing and hunting, work and companionship
 - [The anti-vegan line of reasoning](https://fortheanimals.biblioverse.org/reasoning.html): where the conversation goes after each objection is answered

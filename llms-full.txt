@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 257 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 260 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -68,6 +68,7 @@ Is what is natural justified?
 - [C10. Farm animals exist for this](https://fortheanimals.biblioverse.org/arguments/farm-animals-exist-for-this.html): An imposed purpose: the "function" is assigned by whoever profits
 - [C11. Cows need to be milked](https://fortheanimals.biblioverse.org/arguments/cows-need-to-be-milked.html): Only because they were made pregnant and bred for overproduction
 - [C12. If we don't eat them, animals will take over the planet](https://fortheanimals.biblioverse.org/arguments/if-we-dont-eat-them-animals-will-take-over-the-planet.html): Gets the cause backwards: there are so many because they're bred
+- [C13. I honor the animals I eat](https://fortheanimals.biblioverse.org/arguments/i-honor-the-animals-i-eat.html): Gratitude lives in the one who eats and changes nothing for the one who is eaten; honoring an animal means respecting their interest in living
 
 ## D. Tradition, culture and religion (Part DIR)
 
@@ -210,6 +211,8 @@ And beyond the plate?
 - [I30. The bird was born in a cage; it wouldn't survive if released](https://fortheanimals.biblioverse.org/arguments/the-bird-was-born-in-a-cage-it-wouldnt-survive-if-released.html): That calls for caring well for the bird that exists, not buying or breeding others to live caged; the market feeds trafficking
 - [I31. Having a pet is exploitation too, and your cat eats meat](https://fortheanimals.biblioverse.org/arguments/having-a-pet-is-exploitation-too-and-your-cat-eats-meat.html): Adopting and caring differs from breeding to use; cats need nutrients, not meat; and none of this licenses eating animals
 - [I32. A shock collar is just a stimulus; it doesn't hurt the dog](https://fortheanimals.biblioverse.org/arguments/a-shock-collar-is-just-a-stimulus-it-doesnt-hurt-the-dog.html): It works because it's unpleasant, doesn't treat the cause of barking, and reward-based training works as well or better
+- [I33. Carmine is a natural dye, better than artificial ones](https://fortheanimals.biblioverse.org/arguments/carmine-is-a-natural-dye-better-than-artificial-ones.html): Natural doesn't mean without victims: about 70,000 cochineals are killed per pound of dye, and there are natural reds from beetroot, paprika and fruit
+- [I34. I only use cruelty-free products](https://fortheanimals.biblioverse.org/arguments/i-only-use-cruelty-free-products.html): The label usually covers only testing: the product can contain carmine, lanolin, beeswax, collagen and other ingredients from exploited and killed animals
 
 ## J. Practicality, economy and society (Part IND)
 
