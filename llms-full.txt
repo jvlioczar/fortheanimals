@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 219 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 220 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -140,6 +140,7 @@ Do we need animal products?
 - [G17. My doctor told me to eat meat](https://fortheanimals.biblioverse.org/arguments/my-doctor-told-me-to-eat-meat.html): An appeal to individual authority against institutional positions
 - [G18. Fruitarianism isn't healthy, so veganism isn't either](https://fortheanimals.biblioverse.org/arguments/fruitarianism-isnt-healthy-so-veganism-isnt-either.html): Veganism isn't fruitarianism: an all-fruit diet is risky, but a varied, planned vegan diet with B12 is considered adequate
 - [G19. Veganism is an eating disorder in disguise](https://fortheanimals.biblioverse.org/arguments/veganism-is-an-eating-disorder-in-disguise.html): The association exists, but the disorder usually comes before the diet; community vegans show no more signs of disorder, and the cause of a tragedy is the illness
+- [G20. Eating animals is necessary to survive](https://fortheanimals.biblioverse.org/arguments/eating-animals-is-necessary-to-survive.html): Necessary for whom? Where the alternative exists it is a choice, and the definition of veganism already speaks of doing what is possible and practicable; and the argument concedes the principle that undoes it, since without necessity there is no justification
 
 ## H. Environment, ecology and agriculture (Part IND)
 
@@ -204,7 +205,7 @@ Is it feasible and fair to ask this?
 - [J20. I don't want to feel left out; eating together is how you belong](https://fortheanimals.biblioverse.org/arguments/i-dont-want-to-feel-left-out-eating-together-is-how-you-belong.html): Belonging doesn't require eating the same dish, and the social discomfort of refusing doesn't compare with the cost to the animal
 - [J21. Veganism has become big business](https://fortheanimals.biblioverse.org/arguments/veganism-has-become-big-business.html): Genetic fallacy: a moral position doesn't become false because someone profits from it, and the business of exploiting animals is far bigger
 - [J22. Billions of people depend on fish for protein](https://fortheanimals.biblioverse.org/arguments/billions-of-people-depend-on-fish-for-protein.html): The FAO figure refers to 20% of animal protein, not of protein needs, and the dependence of some doesn't justify consumption by those who have a choice
-- [J23. People are dying in a war and you're worried about animals](https://fortheanimals.biblioverse.org/arguments/people-are-dying-in-a-war-and-youre-worried-about-animals.html): The animals are victims of the same war, and helping them takes nothing from anyone; in disasters, caring for them is often what makes people agree to evacuate
+- [J23. People are dying in a war and you're worried about animals](https://fortheanimals.biblioverse.org/arguments/people-are-dying-in-a-war-and-youre-worried-about-animals.html): The animals are victims of the same war; the cost of helping them is far smaller than the sentence assumes, and a cost existing decides nothing, since that holds for every use of resources
 
 ## K. Effectiveness and individual responsibility (Part IND)
 
