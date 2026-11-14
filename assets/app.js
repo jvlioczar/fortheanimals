@@ -293,7 +293,7 @@
         });
         atual.appendChild(g);
       } else {
-        atual.appendChild(el('p', 'rac-fim', n.raiz ? 'This is one of the roots: the point where the conversation usually ends. From here, almost all that is left is frankness or the end of the conversation.' : 'No paths are catalogued from this argument yet. When an objection runs out, the conversation usually goes back to one of the roots: A10, J11 or E12.'));
+        atual.appendChild(el('p', 'rac-fim', n.raiz ? 'This is one of the roots: the point where the conversation usually ends. From here, almost all that is left is frankness or the end of the conversation.' : 'No paths are catalogued from this argument yet. When an objection runs out, the conversation usually goes back to one of the roots: A8, J5 or E15.'));
         if (!n.raiz) {
           var gr = el('div', 'rac-opc');
           RD.raizes.forEach(function (rz) {
