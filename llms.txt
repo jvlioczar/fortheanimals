@@ -11,7 +11,7 @@ A free, open site, with no sign-up. Each argument has a page with the strongest 
 
 ## Arguments
 
-- [All arguments](https://fortheanimals.biblioverse.org/#arguments): the 226 arguments used against veganism and antispeciesism, each with its main flaw
+- [All arguments](https://fortheanimals.biblioverse.org/#arguments): the 227 arguments used against veganism and antispeciesism, each with its main flaw
 - [The families](https://fortheanimals.biblioverse.org/families.html): the arguments grouped by their underlying question and dominant error
 - [The anti-vegan line of reasoning](https://fortheanimals.biblioverse.org/reasoning.html): where the conversation goes after each objection is answered
 - [Map of connections](https://fortheanimals.biblioverse.org/map.html): the chains of objections and the three roots where almost every conversation ends
@@ -25,7 +25,7 @@ A free, open site, with no sign-up. Each argument has a page with the strongest 
 
 ## For the movement itself
 
-- [Stop saying this](https://fortheanimals.biblioverse.org/stop-saying.html): 64 arguments used by vegans that do not survive scrutiny, and how to say them better
+- [Stop saying this](https://fortheanimals.biblioverse.org/stop-saying.html): 67 arguments used by vegans that do not survive scrutiny, and how to say them better
 - [Beyond veganism](https://fortheanimals.biblioverse.org/beyond-veganism.html): antispeciesism and sentientism, wild animals, digital minds and the currents of the movement
 
 ## Practice
