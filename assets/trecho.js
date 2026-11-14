@@ -329,20 +329,20 @@
       while (true) {
         tA = Math.round(W * 0.05 * k); tR = Math.round(W * 0.036 * k); tP = Math.round(W * 0.04 * k);
         A = linhasDe(x, '“' + semPonto + '”', '600 ' + tA + 'px "Mozilla Headline", Georgia, serif', largura, 4);
-        R = linhasDe(x, o.resp, '500 ' + tR + 'px Inter, system-ui, sans-serif', largura, 0);
+        R = o.resp ? linhasDe(x, o.resp, '500 ' + tR + 'px Inter, system-ui, sans-serif', largura, 0) : [];
         P = o.caixa ? linhasDe(x, o.caixa[1], '600 ' + tP + 'px "Mozilla Headline", Georgia, serif', lCaixa, 0) : [];
         gap = Math.round(W * 0.04 * Math.min(1.2, Math.max(k, 0.6)));
         hA = hCab + A.length * Math.round(tA * 1.2);
-        hR = aRot + R.length * Math.round(tR * 1.42);
+        hR = R.length ? aRot + R.length * Math.round(tR * 1.42) : 0;
         hP = P.length ? pad * 2 + aRot + P.length * Math.round(tP * 1.28) : 0;
-        if (hA + gap + hR + (hP ? gap + hP : 0) <= disp || k <= 0.5) break;
+        if (hA + (hR ? gap + hR : 0) + (hP ? gap + hP : 0) <= disp || k <= 0.5) break;
         k -= 0.025;
       }
-      var total = hA + gap + hR + (hP ? gap + hP : 0);
-      if (total > disp) {   /* no limite, a resposta é cortada, nunca o destaque */
+      var total = hA + (hR ? gap + hR : 0) + (hP ? gap + hP : 0);
+      if (total > disp && R.length) {   /* no limite, a resposta é cortada, nunca o destaque */
         var cabe = Math.max(1, Math.floor((disp - (total - R.length * Math.round(tR * 1.42))) / Math.round(tR * 1.42)));
         R = linhasDe(x, o.resp, '500 ' + tR + 'px Inter, system-ui, sans-serif', largura, cabe);
-        hR = aRot + R.length * Math.round(tR * 1.42); total = hA + gap + hR + (hP ? gap + hP : 0);
+        hR = aRot + R.length * Math.round(tR * 1.42); total = hA + (hR ? gap + hR : 0) + (hP ? gap + hP : 0);
       }
       var y = y1 + Math.max(0, (disp - total) / 2);
 
@@ -350,13 +350,15 @@
       if (o.cab) { x.fillStyle = '#b8460f'; x.font = rot; x.fillText(o.cab.toUpperCase(), m, y + W * 0.02); y += hCab; }
       x.fillStyle = TINTA; x.font = '600 ' + tA + 'px "Mozilla Headline", Georgia, serif';
       A.forEach(function (l, i) { x.fillText(l, m, y + tA * 0.85 + i * Math.round(tA * 1.2)); });
-      y += hA - hCab + gap;
+      y += hA - hCab + (hR ? gap : 0);
 
-      /* a resposta */
-      x.fillStyle = '#4f6346'; x.font = rot; x.fillText(o.rotulo.toUpperCase(), m, y + W * 0.02);
-      x.fillStyle = TINTA; x.font = '500 ' + tR + 'px Inter, system-ui, sans-serif';
-      R.forEach(function (l, i) { x.fillText(l, m, y + aRot + tR * 0.85 + i * Math.round(tR * 1.42)); });
-      y += hR;
+      /* a resposta (no "Stop saying this", pode ficar de fora) */
+      if (hR) {
+        x.fillStyle = '#4f6346'; x.font = rot; x.fillText(o.rotulo.toUpperCase(), m, y + W * 0.02);
+        x.fillStyle = TINTA; x.font = '500 ' + tR + 'px Inter, system-ui, sans-serif';
+        R.forEach(function (l, i) { x.fillText(l, m, y + aRot + tR * 0.85 + i * Math.round(tR * 1.42)); });
+        y += hR;
+      }
 
       /* o destaque amarelo */
       if (hP) {
@@ -377,13 +379,14 @@
     };
 
     var abreResp = function () {
-      var fmt = FORMATOS[0], op = RESP.ops[0], comCaixa = !!RESP.caixa;
+      var fmt = FORMATOS[0], op = RESP.ops[0], comCaixa = !!RESP.caixa, comResp = true;
       var chips = function (lista, attr, atual) {
         return lista.map(function (f) { return '<button type="button" class="chip-fmt' + (f[0] === atual ? ' on' : '') + '" data-' + attr + '="' + f[0] + '" aria-pressed="' + (f[0] === atual ? 'true' : 'false') + '">' + f[1] + '</button>'; }).join('');
       };
       var c = modal('Share the answer',
         (RESP.ops.length > 1 ? '<p class="fmt-linha" role="group" aria-label="Which answer">' + chips(RESP.ops, 'r', op[0]) + '</p>' : '') +
-        (RESP.caixa ? '<p class="fmt-linha"><label class="resp-perg"><input type="checkbox" checked> ' + RESP.inclui + '</label></p>' : '') +
+        (RESP.incluiResp ? '<p class="fmt-linha"><label class="resp-perg resp-r"><input type="checkbox" checked> ' + RESP.incluiResp + '</label></p>' : '') +
+        (RESP.caixa ? '<p class="fmt-linha"><label class="resp-perg resp-c"><input type="checkbox" checked> ' + RESP.inclui + '</label></p>' : '') +
         '<p class="fmt-linha" role="group" aria-label="Image format">' + chips(FORMATOS.map(function (f) { return [f.k, f.r]; }), 'f', fmt.k) + '</p>' +
         '<canvas class="cv-trecho" width="1080" height="1350" aria-label="Image with the answer"></canvas>' +
         '<p class="jan-btns"><button type="button" class="btn" data-k="img">Download image</button>' +
@@ -391,7 +394,7 @@
         '<button type="button" class="btn alt" data-k="texto">Copy as text</button>' +
         (navigator.share ? '<button type="button" class="btn alt" data-k="share">Share…</button>' : '') + '</p>');
       var cv = $('canvas', c);
-      var pinta = function () { cv.width = fmt.w; cv.height = fmt.h; desenhaResp(cv, { cab: RESP.cab, resp: op[3], rotulo: op[2], caixa: comCaixa ? RESP.caixa : null }); };
+      var pinta = function () { cv.width = fmt.w; cv.height = fmt.h; desenhaResp(cv, { cab: RESP.cab, resp: comResp ? op[3] : '', rotulo: op[2], caixa: comCaixa ? RESP.caixa : null }); };
       var f = document.fonts && document.fonts.load
         ? Promise.all([document.fonts.load('600 60px "Mozilla Headline"'), document.fonts.load('500 34px Inter'), document.fonts.load('700 28px "JetBrains Mono"')])
         : Promise.resolve();
@@ -407,10 +410,12 @@
       };
       liga('r', function (v) { op = RESP.ops.filter(function (x) { return x[0] === v; })[0]; });
       liga('f', function (v) { fmt = FORMATOS.filter(function (x) { return x.k === v; })[0]; });
-      var cx = $('.resp-perg input', c);
-      if (cx) cx.addEventListener('change', function () { comCaixa = cx.checked; pinta(); });
+      /* as duas partes podem ser tiradas, mas não as duas ao mesmo tempo */
+      var cr = $('.resp-r input', c), cx = $('.resp-c input', c);
+      if (cr) cr.addEventListener('change', function () { if (!cr.checked && cx && !cx.checked) cx.checked = comCaixa = true; comResp = cr.checked; pinta(); });
+      if (cx) cx.addEventListener('change', function () { if (!cx.checked && cr && !cr.checked) cr.checked = comResp = true; comCaixa = cx.checked; pinta(); });
       var link = location.origin + location.pathname;
-      var comoTexto = function () { return (RESP.cab ? RESP.cab + ': ' : '') + '“' + semPonto + '”\n\n' + op[3] + (comCaixa && RESP.caixa ? '\n\n' + (RESP.cab ? RESP.caixa[0] + ': ' : '') + RESP.caixa[1] : '') + '\n\n' + link; };
+      var comoTexto = function () { return (RESP.cab ? RESP.cab + ': ' : '') + '“' + semPonto + '”' + (comResp ? '\n\n' + op[3] : '') + (comCaixa && RESP.caixa ? '\n\n' + (RESP.cab ? RESP.caixa[0] + ': ' : '') + RESP.caixa[1] : '') + '\n\n' + link; };
       var nomeArq = function () { return 'answer-' + (codigo ? codigo.toLowerCase() : location.pathname.split('/').pop().replace('.html', '')) + '-' + fmt.k + '.png'; };
       $('[data-k="img"]', c).addEventListener('click', function () { cv.toBlob(function (b) { baixar(nomeArq(), b); }); });
       $('[data-k="texto"]', c).addEventListener('click', function () { copiar(comoTexto(), this); });
