@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 272 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 273 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -109,6 +109,7 @@ Is it just a matter of choice?
 - [E13. He eats meat, but he's a good person](https://fortheanimals.biblioverse.org/arguments/he-eats-meat-but-hes-a-good-person.html): Confuses judging the person with judging the act: good people also take part in injustices that custom accepts
 - [E14. I admire you, but I can't do it](https://fortheanimals.biblioverse.org/arguments/i-admire-you-but-i-cant-do-it.html): Admiring already means agreeing with the moral point; hard is not impossible, and changing gradually, with support, works
 - [E15. I know it's wrong, but I won't change](https://fortheanimals.biblioverse.org/arguments/i-know-its-wrong-but-i-wont-change.html): Admitted weakness of will: concedes the moral point and refuses its consequence
+- [E16. I agree with vegans; veganism is an important movement](https://fortheanimals.biblioverse.org/arguments/i-agree-with-vegans-veganism-is-an-important-movement.html): Agreeing spares no animal: recognizing the wrong is necessary but not sufficient, and the duty not to cause harm can't be outsourced to the movement
 
 ## F. Edge cases and hypotheticals (Part DIR)
 
