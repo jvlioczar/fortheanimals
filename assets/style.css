@@ -231,7 +231,7 @@ details.item[open]{background:var(--cartao);border-radius:10px;box-shadow:inset 
 .erro{scroll-margin-top:90px}.erro:target{box-shadow:0 0 0 3px var(--ouro)}
 
 /* treino */
-.sel{flex:1;border:1.5px solid var(--linha);background:var(--cartao);border-radius:99px;padding:10px 16px;font:inherit;color:var(--tinta)}
+.sel{flex:1;min-width:0;max-width:100%;text-overflow:ellipsis;border:1.5px solid var(--linha);background:var(--cartao);border-radius:99px;padding:10px 16px;font:inherit;color:var(--tinta)}
 .flash{background:var(--noite);color:#fff;border-radius:26px 26px 26px 6px;padding:clamp(20px,4vw,38px);min-height:260px}
 .flash-m{display:flex;justify-content:space-between;margin:0 0 14px;font-size:.88rem;color:var(--sobre2)}#t-cod{background:#fff;border-radius:99px;padding:1px 10px;font-weight:700}
 .flash-q{font:500 italic clamp(1.45rem,3.6vw,2.2rem)/1.2 var(--serif);margin:0 0 18px}
