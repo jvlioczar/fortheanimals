@@ -118,8 +118,17 @@
   // Grupos do menu: só um aberto por vez; fecham ao clicar fora ou com Esc.
   var subs = document.querySelectorAll('.menu .sub');
   subs.forEach(function (d) { d.addEventListener('toggle', function () { if (d.open) subs.forEach(function (o) { if (o !== d) o.open = false; }); }); });
-  document.addEventListener('click', function (ev) { subs.forEach(function (d) { if (d.open && !d.contains(ev.target)) d.open = false; }); });
-  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') subs.forEach(function (d) { if (d.open) { d.open = false; d.querySelector('summary').focus(); } }); });
+  // Toque ou clique fora fecha os grupos abertos e o menu do celular (pointerdown funciona também no iPhone, onde o clique em área vazia não chega ao documento).
+  var fechaMenu = function () { if (menu && menu.classList.contains('aberto')) { menu.classList.remove('aberto'); if (hamb) hamb.setAttribute('aria-expanded', 'false'); } };
+  document.addEventListener('pointerdown', function (ev) {
+    subs.forEach(function (d) { if (d.open && !d.contains(ev.target)) d.open = false; });
+    if (menu && !menu.contains(ev.target) && !(hamb && hamb.contains(ev.target))) fechaMenu();
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key !== 'Escape') return;
+    subs.forEach(function (d) { if (d.open) { d.open = false; d.querySelector('summary').focus(); } });
+    if (menu && menu.classList.contains('aberto')) { fechaMenu(); if (hamb) hamb.focus(); }
+  });
 
   /* busca */
   var ov = $('#busca'), q = $('#q'), res = $('#res'), idx = -1;
