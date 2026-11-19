@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 274 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 273 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -122,13 +122,12 @@ What about the desert island?
 - [F4. Should we stop lions from hunting them, then?](https://fortheanimals.biblioverse.org/arguments/should-we-stop-lions-from-hunting-them-then.html): Wild animal suffering is a serious question, and it does not favor eating animals
 - [F5. What about the insects you kill while driving?](https://fortheanimals.biblioverse.org/arguments/what-about-the-insects-you-kill-while-driving.html): Accidental, unavoidable harm differs from intentional, avoidable harm
 - [F6. You also kill mosquitoes and rats at home](https://fortheanimals.biblioverse.org/arguments/you-also-kill-mosquitoes-and-rats-at-home.html): Self-defense and real conflict differ from breeding animals to eat
-- [F7. Killing insects protects us](https://fortheanimals.biblioverse.org/arguments/killing-insects-protects-us.html): The danger comes from few species, and the best protection is usually prevention: Brazil's Ministry of Health doesn't recommend poison against scorpions, and the Wolbachia method reduced dengue without killing mosquitoes
-- [F8. Oysters and mussels don't feel](https://fortheanimals.biblioverse.org/arguments/oysters-and-mussels-dont-feel.html): Partly plausible; it confirms that sentience is the criterion
-- [F9. What if they discover that plants feel?](https://fortheanimals.biblioverse.org/arguments/what-if-they-discover-that-plants-feel.html): Even in that scenario, eating plants would cause less harm, because animals eat far more plants; not being able to reach zero harm doesn't make everything equivalent
-- [F10. What about the eggs from my rescued hen?](https://fortheanimals.biblioverse.org/arguments/what-about-the-eggs-from-my-rescued-hen.html): A rare, debatable case with no link to the industry; it doesn't legitimize buying
-- [F11. Would you eat an animal that died of natural causes?](https://fortheanimals.biblioverse.org/arguments/would-you-eat-an-animal-that-died-of-natural-causes.html): No one was killed, so the moral problem is much smaller; but that meat never reaches the market, and refusing to eat a body can be respect, as we do with humans
-- [F12. What about meat that gets thrown away?](https://fortheanimals.biblioverse.org/arguments/what-about-meat-that-gets-thrown-away.html): Eating without creating demand is a different case; it still reinforces seeing animals as food
-- [F13. Would you eat animals if someone paid you well?](https://fortheanimals.biblioverse.org/arguments/would-you-eat-animals-if-someone-paid-you-well.html): The same dilemma applies to any human cause and never proves it false; refusing on principle is coherent, and so is accepting in order to save far more victims
+- [F7. Oysters and mussels don't feel](https://fortheanimals.biblioverse.org/arguments/oysters-and-mussels-dont-feel.html): Partly plausible; it confirms that sentience is the criterion
+- [F8. What if they discover that plants feel?](https://fortheanimals.biblioverse.org/arguments/what-if-they-discover-that-plants-feel.html): Even in that scenario, eating plants would cause less harm, because animals eat far more plants; not being able to reach zero harm doesn't make everything equivalent
+- [F9. What about the eggs from my rescued hen?](https://fortheanimals.biblioverse.org/arguments/what-about-the-eggs-from-my-rescued-hen.html): A rare, debatable case with no link to the industry; it doesn't legitimize buying
+- [F10. Would you eat an animal that died of natural causes?](https://fortheanimals.biblioverse.org/arguments/would-you-eat-an-animal-that-died-of-natural-causes.html): No one was killed, so the moral problem is much smaller; but that meat never reaches the market, and refusing to eat a body can be respect, as we do with humans
+- [F11. What about meat that gets thrown away?](https://fortheanimals.biblioverse.org/arguments/what-about-meat-that-gets-thrown-away.html): Eating without creating demand is a different case; it still reinforces seeing animals as food
+- [F12. Would you eat animals if someone paid you well?](https://fortheanimals.biblioverse.org/arguments/would-you-eat-animals-if-someone-paid-you-well.html): The same dilemma applies to any human cause and never proves it false; refusing on principle is coherent, and so is accepting in order to save far more victims
 
 ## G. Health and nutrition (Part IND)
 
