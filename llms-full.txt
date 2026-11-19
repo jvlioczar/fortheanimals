@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 273 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 274 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -209,7 +209,7 @@ And beyond the plate?
 - [I23. Racehorses and sporting dogs live better than many people](https://fortheanimals.biblioverse.org/arguments/racehorses-and-sporting-dogs-live-better-than-many-people.html): The care lasts while the animal earns, racing kills and discards, and human poverty is an injustice to fix, not a yardstick for using animals
 - [I24. In sport fishing the fish is released](https://fortheanimals.biblioverse.org/arguments/in-sport-fishing-the-fish-is-released.html): Injury, stress and post-release mortality; pain as a pastime
 - [I25. I fish what I eat; it's more honest than buying at the store](https://fortheanimals.biblioverse.org/arguments/i-fish-what-i-eat-its-more-honest-than-buying-at-the-store.html): Being honest about a harm doesn't make it necessary; a fish out of water dies by asphyxia, with minutes of pain
-- [I26. Trophy hunting funds conservation](https://fortheanimals.biblioverse.org/arguments/trophy-hunting-funds-conservation.html): Little money reaches conservation; it uses individuals as tools
+- [I26. Sport hunting funds conservation](https://fortheanimals.biblioverse.org/arguments/sport-hunting-funds-conservation.html): Little money reaches conservation; it uses individuals as tools
 - [I27. The cart is the carter's livelihood, and the horse is well cared for](https://fortheanimals.biblioverse.org/arguments/the-cart-is-the-carters-livelihood-and-the-horse-is-well-cared-for.html): The worker's income is real; the way forward is to replace the horse with a vehicle, with support, not to keep the animal on the asphalt
 - [I28. Guide and assistance dogs are well cared for and do important work](https://fortheanimals.biblioverse.org/arguments/guide-and-assistance-dogs-are-well-cared-for-and-do-important-work.html): It's a borderline case, discussed with nuance; a hard case doesn't make the easy ones acceptable, such as breeding for slaughter
 - [I29. Police and detection dogs are well cared for and save lives](https://fortheanimals.biblioverse.org/arguments/police-and-detection-dogs-are-well-cared-for-and-save-lives.html): The dog is put at risk without being able to choose, and the care depends on usefulness; a use that saves lives doesn't justify those that don't
@@ -303,6 +303,7 @@ Can the people saying this be trusted?
 - [L31. I'll eat double to make up for you](https://fortheanimals.biblioverse.org/arguments/ill-eat-double-to-make-up-for-you.html): An emotional reaction (reactance), not an argument
 - [L32. My food beats yours](https://fortheanimals.biblioverse.org/arguments/my-food-beats-yours.html): A taunt, not an argument: the pleasure of taste doesn't weigh against someone's life, and much vegan food is the same food as always
 - [L33. Look what you're missing](https://fortheanimals.biblioverse.org/arguments/look-what-youre-missing.html): Showing the plate doesn't answer the question about who became the plate; temptation doesn't make the act just
+- [L34. I hate vegans](https://fortheanimals.biblioverse.org/arguments/i-hate-vegans.html): Hatred is not an argument: it usually defends a threatened identity and habit, and it turns against people who only ask for less suffering for the victims
 
 ## M. Ex-vegans: why I gave up (Part IND)
 
