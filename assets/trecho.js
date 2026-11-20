@@ -293,7 +293,7 @@
     if (pergEl) RESP.caixa = ['Ask a question back', textoDe(pergEl)];
     ancora = (pergEl && pergEl.closest('.retorno')) || curtaEl.closest('.duas') || curtaEl;
   }
-  if (RESP && ancora) {
+  {
     var semPonto = titulo.replace(/\.+$/, '');   /* “Frase.” vira “Frase” */
     var desenhaResp = function (cv, o) {
       var x = cv.getContext('2d'), W = cv.width, H = cv.height;
@@ -316,7 +316,8 @@
       var fSec = '500 ' + Math.round(W * 0.025) + 'px Inter, system-ui, sans-serif';
       var fUrl = '700 ' + Math.round(W * 0.025) + 'px "JetBrains Mono", ui-monospace, monospace';
       var yUrl = H - mi - Math.round(W * 0.05);
-      var lsSec = secao ? linhasDe(x, (codigo ? codigo + ' · ' : '') + secao, fSec, largura, 1) : [];
+      var rodape = o.sec !== undefined ? o.sec : (secao ? (codigo ? codigo + ' · ' : '') + secao : '');
+      var lsSec = rodape ? linhasDe(x, rodape, fSec, largura, 1) : [];
       var ySec = yUrl - Math.round(W * 0.042);
       var yBar = (lsSec.length ? ySec : yUrl) - Math.round(W * 0.05);
 
@@ -328,7 +329,7 @@
       var k = 1.4, A, R, P, tA, tR, tP, hA, hR, hP, gap;
       while (true) {
         tA = Math.round(W * 0.05 * k); tR = Math.round(W * 0.036 * k); tP = Math.round(W * 0.04 * k);
-        A = linhasDe(x, '“' + semPonto + '”', '600 ' + tA + 'px "Mozilla Headline", Georgia, serif', largura, 4);
+        A = linhasDe(x, o.aspas === false ? o.tit : '“' + (o.tit || semPonto) + '”', '600 ' + tA + 'px "Mozilla Headline", Georgia, serif', largura, 4);
         R = o.resp ? linhasDe(x, o.resp, '500 ' + tR + 'px Inter, system-ui, sans-serif', largura, 0) : [];
         P = o.caixa ? linhasDe(x, o.caixa[1], '600 ' + tP + 'px "Mozilla Headline", Georgia, serif', lCaixa, 0) : [];
         gap = Math.round(W * 0.04 * Math.min(1.2, Math.max(k, 0.6)));
@@ -378,12 +379,13 @@
       x.fillStyle = TINTA; x.font = fUrl; x.fillText(SITE, m, yUrl);
     };
 
-    var abreResp = function () {
+    var abreResp = function (RESP) {
+      var tit = RESP.tit || semPonto, aspas = RESP.aspas !== false;
       var fmt = FORMATOS[0], op = RESP.ops[0], comCaixa = !!RESP.caixa, comResp = true;
       var chips = function (lista, attr, atual) {
         return lista.map(function (f) { return '<button type="button" class="chip-fmt' + (f[0] === atual ? ' on' : '') + '" data-' + attr + '="' + f[0] + '" aria-pressed="' + (f[0] === atual ? 'true' : 'false') + '">' + f[1] + '</button>'; }).join('');
       };
-      var c = modal('Share the answer',
+      var c = modal(RESP.janela || 'Share the answer',
         (RESP.ops.length > 1 ? '<p class="fmt-linha" role="group" aria-label="Which answer">' + chips(RESP.ops, 'r', op[0]) + '</p>' : '') +
         (RESP.incluiResp ? '<p class="fmt-linha"><label class="resp-perg resp-r"><input type="checkbox" checked> ' + RESP.incluiResp + '</label></p>' : '') +
         (RESP.caixa ? '<p class="fmt-linha"><label class="resp-perg resp-c"><input type="checkbox" checked> ' + RESP.inclui + '</label></p>' : '') +
@@ -394,7 +396,7 @@
         '<button type="button" class="btn alt" data-k="texto">Copy as text</button>' +
         (navigator.share ? '<button type="button" class="btn alt" data-k="share">Share…</button>' : '') + '</p>');
       var cv = $('canvas', c);
-      var pinta = function () { cv.width = fmt.w; cv.height = fmt.h; desenhaResp(cv, { cab: RESP.cab, resp: comResp ? op[3] : '', rotulo: op[2], caixa: comCaixa ? RESP.caixa : null }); };
+      var pinta = function () { cv.width = fmt.w; cv.height = fmt.h; desenhaResp(cv, { cab: RESP.cab, resp: comResp ? op[3] : '', rotulo: op[2], caixa: comCaixa ? RESP.caixa : null, tit: tit, aspas: aspas, sec: RESP.sec }); };
       var f = document.fonts && document.fonts.load
         ? Promise.all([document.fonts.load('600 60px "Mozilla Headline"'), document.fonts.load('500 34px Inter'), document.fonts.load('700 28px "JetBrains Mono"')])
         : Promise.resolve();
@@ -414,9 +416,9 @@
       var cr = $('.resp-r input', c), cx = $('.resp-c input', c);
       if (cr) cr.addEventListener('change', function () { if (!cr.checked && cx && !cx.checked) cx.checked = comCaixa = true; comResp = cr.checked; pinta(); });
       if (cx) cx.addEventListener('change', function () { if (!cx.checked && cr && !cr.checked) cr.checked = comResp = true; comCaixa = cx.checked; pinta(); });
-      var link = location.origin + location.pathname;
-      var comoTexto = function () { return (RESP.cab ? RESP.cab + ': ' : '') + '“' + semPonto + '”' + (comResp ? '\n\n' + op[3] : '') + (comCaixa && RESP.caixa ? '\n\n' + (RESP.cab ? RESP.caixa[0] + ': ' : '') + RESP.caixa[1] : '') + '\n\n' + link; };
-      var nomeArq = function () { return 'answer-' + (codigo ? codigo.toLowerCase() : location.pathname.split('/').pop().replace('.html', '')) + '-' + fmt.k + '.png'; };
+      var link = location.origin + location.pathname + (RESP.ancora || '');
+      var comoTexto = function () { return (RESP.cab ? RESP.cab + ': ' : '') + (aspas ? '“' + tit + '”' : tit) + (comResp ? '\n\n' + op[3] : '') + (comCaixa && RESP.caixa ? '\n\n' + (RESP.cab ? RESP.caixa[0] + ': ' : '') + RESP.caixa[1] : '') + '\n\n' + link; };
+      var nomeArq = function () { return 'answer-' + (RESP.arq || (codigo ? codigo.toLowerCase() : location.pathname.split('/').pop().replace('.html', ''))) + '-' + fmt.k + '.png'; };
       $('[data-k="img"]', c).addEventListener('click', function () { cv.toBlob(function (b) { baixar(nomeArq(), b); }); });
       $('[data-k="texto"]', c).addEventListener('click', function () { copiar(comoTexto(), this); });
       var ci = $('[data-k="copiar-img"]', c);
@@ -433,7 +435,7 @@
       if (sh) sh.addEventListener('click', function () {
         cv.toBlob(function (b) {
           var arq = new File([b], nomeArq(), { type: 'image/png' });
-          var dados = { title: titulo, text: comoTexto(), url: link };
+          var dados = { title: tit, text: comoTexto(), url: link };
           if (navigator.canShare && navigator.canShare({ files: [arq] })) dados.files = [arq];
           navigator.share(dados).catch(function () {});
         });
@@ -441,9 +443,27 @@
     };
 
     /* o botão fica logo abaixo do destaque (a pergunta de retorno ou "como dizer melhor") */
-    var bot = document.createElement('p'); bot.className = 'resp-img';
-    bot.innerHTML = '<button type="button" class="btn">Make an image of the answer</button><small>' + (RESP.dica || 'The argument, the answer and the question to ask back in one image for social media.') + '</small>';
-    ancora.parentNode.insertBefore(bot, ancora.nextSibling);
-    $('button', bot).addEventListener('click', abreResp);
+    if (RESP && ancora) {
+      var bot = document.createElement('p'); bot.className = 'resp-img';
+      bot.innerHTML = '<button type="button" class="btn">Make an image of the answer</button><small>' + (RESP.dica || 'The argument, the answer and the question to ask back in one image for social media.') + '</small>';
+      ancora.parentNode.insertBefore(bot, ancora.nextSibling);
+      $('button', bot).addEventListener('click', function () { abreResp(RESP); });
+    }
+
+    /* glossário: cada verbete ganha um botão; a imagem leva o termo, a definição ou o comentário crítico, e o exemplo aplicado */
+    $$('.glos-item').forEach(function (it) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'glos-img'; b.textContent = 'Make an image';
+      var lugar = $('.glos-links', it) || $('.glos-no-guia', it);
+      if (lugar) it.insertBefore(b, lugar); else it.appendChild(b);
+      b.addEventListener('click', function () {
+        var ops = [['def', 'Definition', 'Definition', textoDe($('.glos-def', it))]];
+        var com = $('.glos-com', it);
+        if (com) ops.push(['com', 'Critical comment', 'Critical comment', textoDe(com).replace(/\s*(Veja|See) [^.]*\.\s*$/, '')]);
+        var ex = $('.glos-ex', it);
+        abreResp({ tit: textoDe($('h3', it)), aspas: false, cab: 'Glossary', ops: ops,
+          caixa: ex ? ['Example', textoDe(ex).replace(/^[“"]+|[”"]+$/g, '')] : null, inclui: 'Include the example',
+          sec: textoDe($('.glos-sec', it)), janela: 'Share the entry', arq: it.id, ancora: '#' + it.id });
+      });
+    });
   }
 })();
