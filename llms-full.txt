@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 276 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 278 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -305,7 +305,9 @@ Can the people saying this be trusted?
 - [L31. I'll eat double to make up for you](https://fortheanimals.biblioverse.org/arguments/ill-eat-double-to-make-up-for-you.html): An emotional reaction (reactance), not an argument
 - [L32. My food beats yours](https://fortheanimals.biblioverse.org/arguments/my-food-beats-yours.html): A taunt, not an argument: the pleasure of taste doesn't weigh against someone's life, and much vegan food is the same food as always
 - [L33. Look what you're missing](https://fortheanimals.biblioverse.org/arguments/look-what-youre-missing.html): Showing the plate doesn't answer the question about who became the plate; temptation doesn't make the act just
-- [L34. I hate vegans](https://fortheanimals.biblioverse.org/arguments/i-hate-vegans.html): Hatred is not an argument: it usually defends a threatened identity and habit, and it turns against people who only ask for less suffering for the victims
+- [L34. Defending animals is an emotional appeal, not an argument](https://fortheanimals.biblioverse.org/arguments/defending-animals-is-an-emotional-appeal-not-an-argument.html): The arguments for animals start from criteria and facts about sentience, and the defense of consumption also rests on emotions such as pleasure, habit and attachment
+- [L35. Defending animals is middle-class moralism](https://fortheanimals.biblioverse.org/arguments/defending-animals-is-middle-class-moralism.html): Refusing meat isn't just for the rich, the class of those who defend an idea doesn't decide whether it's right, and caring for animals takes no care from humans
+- [L36. I hate vegans](https://fortheanimals.biblioverse.org/arguments/i-hate-vegans.html): Hatred is not an argument: it usually defends a threatened identity and habit, and it turns against people who only ask for less suffering for the victims
 
 ## M. Ex-vegans: why I gave up (Part IND)
 
@@ -432,6 +434,7 @@ Should we help, not just stop harming?
 - [Anarchism](https://fortheanimals.biblioverse.org/political/anarchism.html): Anarchism fights domination between people; animals are not part of that. Reject hierarchies and forms of domination that cannot be justified.
 - [Utilitarianism](https://fortheanimals.biblioverse.org/political/utilitarianism.html): Human pleasures are worth more: better to be a human dissatisfied than a pig satisfied. Maximize well-being and minimize suffering for everyone affected, counting each one's interest equally.
 - [Contractualism and Rawlsian justice](https://fortheanimals.biblioverse.org/political/contractualism.html): Justice holds among those who have a sense of justice and can make agreements. Choose the rules of a society impartially, as if we did not know what position we would occupy in it.
+- [The capabilities approach](https://fortheanimals.biblioverse.org/political/capabilities-approach.html): What matters is for the animal to live according to its species: a farm that lets it graze and be with others, and kills it painlessly, respects that. Secure for each individual, up to an adequate minimum, the central capabilities for a dignified life: not only what they feel or own, but what they are actually able to be and do. The approach was proposed by the Indian economist Amartya Sen to think about human development and turned into a theory of justice by the American philosopher Martha Nussbaum, who extended it to animals.
 - [Deontology and Kantianism](https://fortheanimals.biblioverse.org/political/deontology.html): Only rational beings are ends in themselves; toward animals we have, at most, indirect duties. Treat beings who have value of their own as ends, and never merely as means.
 - [Communitarianism](https://fortheanimals.biblioverse.org/political/communitarianism.html): Duties arise from the community and its traditions, and animals are not members of it. Morality is built in the bonds and practices of a community.
 - [Egalitarianism and prioritarianism](https://fortheanimals.biblioverse.org/political/egalitarianism.html): Equality is among human citizens; animals belong to another category. Reduce unjust inequalities and give priority to those who are worst off.
