@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 274 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 276 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -31,6 +31,7 @@ Do animals count morally?
 - [A23. Rights are a human invention, only for humans](https://fortheanimals.biblioverse.org/arguments/rights-are-a-human-invention-only-for-humans.html): Genetic fallacy: where a norm came from doesn't set how far it reaches
 - [A24. Morality exists to protect us from each other](https://fortheanimals.biblioverse.org/arguments/morality-exists-to-protect-us-from-each-other.html): It would also exclude babies and vulnerable people; and explaining where a practice came from does not justify it
 - [A25. Animals are property](https://fortheanimals.biblioverse.org/arguments/animals-are-property.html): Describes a legal status; doesn't justify it (as with slavery)
+- [A26. Treating animals well is a matter of compassion, not justice](https://fortheanimals.biblioverse.org/arguments/treating-animals-well-is-a-matter-of-compassion-not-justice.html): A duty of compassion no one can enforce gives way to whoever wants to break it, and the criterion used to exclude animals from justice would exclude babies too
 
 ## B. Harm, death and welfare (Part DIR)
 
@@ -53,6 +54,7 @@ Does killing without suffering harm the individual?
 - [B15. You don't live on a farm, so you don't know the truth](https://fortheanimals.biblioverse.org/arguments/you-dont-live-on-a-farm-so-you-dont-know-the-truth.html): What is criticised is in the industry's own manuals and regulations; and attacking the speaker doesn't show that what is said is wrong
 - [B16. It's a fair trade: we care for them and feed them, and they give us meat](https://fortheanimals.biblioverse.org/arguments/its-a-fair-trade-we-care-for-them-and-feed-them-and-they-give-us-meat.html): A trade requires that both sides can refuse; the protector is the one who kills, and the price is the animal's life
 - [B17. Animals don't mind, they even like it and, in a way, they consent](https://fortheanimals.biblioverse.org/arguments/animals-dont-mind-they-even-like-it-and-in-a-way-they-consent.html): Seeming calm isn't not minding, and liking food isn't liking being killed; consent requires understanding and being able to refuse, and death is a harm even when unnoticed
+- [B18. The problem is suffering, not use](https://fortheanimals.biblioverse.org/arguments/the-problem-is-suffering-not-use.html): Almost all use for food ends in death, which is a harm even without pain, and real meat, milk and egg practices aren't the suffering-free use the thesis assumes
 
 ## C. Nature, biology and evolution (Part DIR)
 
