@@ -227,21 +227,25 @@
   /* treino com cartões */
   var td = $('#t-dados');
   if (td) {
-    var D = JSON.parse(td.textContent), mod = $('#t-mod'), fila = [], pos = 0, sabia = 0, vistas = 0, cad = false;
+    var D = JSON.parse(td.textContent), mod = $('#t-mod'), fila = [], pos = 0, sabia = 0, vistas = 0, cad = false, pr = false;
     var acha = function (c) { return D.cartas.filter(function (x) { return x.c === c; })[0]; };
     var mistura = function (l) { l = l.slice(); for (var i = l.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = l[i]; l[i] = l[j]; l[j] = t; } return l; };
     var carta = function () {
       if (pos >= fila.length) { pos = 0; if (!cad) fila = mistura(fila); }
       var c = fila[pos];
       $('#t-cod').textContent = c.c; $('#t-cod').style.color = c.cor;
-      $('#t-pos').textContent = (pos + 1) + ' de ' + fila.length;
+      $('#t-pos').textContent = (pos + 1) + ' of ' + fila.length;
       $('#t-q').textContent = '"' + c.f + '"';
       $('#t-r').textContent = c.r; $('#t-l').href = c.u;
+      /* modo premissa oculta: outro rótulo, uma dica e a explicação */
+      $('#t-fa').hidden = pr; $('#t-po').hidden = !pr; $('#t-dica').hidden = !pr;
+      $('#t-x').textContent = pr ? c.x : ''; $('#t-x').hidden = !pr;
       $('#t-res').hidden = true; $('#t-ver').hidden = false; $('#t-sabia').hidden = true; $('#t-rever').hidden = true;
     };
     var inicia = function () {
-      var v = mod.value; cad = false;
+      var v = mod.value; cad = false; pr = v === 'premissa';
       if (v === 'todos') fila = mistura(D.cartas);
+      else if (pr) fila = mistura(D.premissas || []);
       else if (v.indexOf('fam:') === 0) fila = mistura(D.cartas.filter(function (x) { return x.fam === v.slice(4); }));
       else { cad = true; fila = D.cadeias[+v.slice(4)].cods.map(acha); }
       pos = 0; sabia = 0; vistas = 0; $('#t-placar').textContent = ''; carta();
