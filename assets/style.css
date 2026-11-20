@@ -649,3 +649,23 @@ details.item summary:hover{background:#ffeb5b66}details.item[open]{background:#f
 /* cartão de resposta: botão abaixo da pergunta de retorno e opção de incluí-la */
 .resp-img{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 1.4em}.troca+.resp-img{margin-top:20px}.resp-img small{color:var(--suave);font-size:.88rem}
 .resp-perg{display:inline-flex;align-items:center;gap:8px;font-size:.95rem;cursor:pointer}.resp-perg input{width:18px;height:18px;accent-color:var(--tinta)}
+.glos-lede2{font-size:1rem;margin-top:8px}
+.glos-sec{margin:2px 0 8px}
+.glos-tipo{text-transform:none;letter-spacing:0;font-style:italic}
+.glos-mais{margin:0 0 8px}
+.glos-mais summary{cursor:pointer;font:600 .82rem var(--sans);color:var(--tinta2);list-style:none;display:inline-flex;align-items:center;gap:6px}
+.glos-mais summary::-webkit-details-marker{display:none}
+.glos-mais summary::before{content:'+';font:700 1rem/1 var(--sans);color:var(--tinta)}
+.glos-mais[open] summary::before{content:'–'}
+.glos-mais dl{margin:8px 0 0;padding:10px 12px;background:var(--cartao,#fff);border:1px solid var(--linha);border-radius:10px;display:grid;gap:6px}
+.glos-mais dl div{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:8px}
+.glos-mais dt{font:600 .72rem var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--tinta2);padding-top:3px}
+.glos-mais dd{margin:0}
+@media (max-width:600px){.glos-mais dl div{grid-template-columns:1fr;gap:0}}
+.glos-como{margin:0 0 18px;border:1.5px solid var(--tinta);border-radius:12px;background:#fffad4}
+.glos-como summary{cursor:pointer;padding:10px 14px;font:700 .82rem var(--mono);text-transform:uppercase;letter-spacing:.05em}
+.glos-como-corpo{padding:0 14px 12px}
+.glos-como-ex{margin:0 0 8px;font-size:1.05rem}
+.glos-como-ex span{font:600 .72rem var(--mono);text-transform:uppercase;color:var(--tinta2);margin-left:6px}
+.glos-como ol{margin:0;padding-left:20px}
+.glos-como li{margin:4px 0}
