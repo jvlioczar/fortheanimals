@@ -17,10 +17,15 @@
       dados = j; esperando.forEach(function (f) { f(); }); esperando = [];
     }).catch(function () { pedindo = null; });   // se a rede falhar, a próxima tecla tenta de novo, em vez de travar a busca
   };
-  // Ordem em três faixas, sempre nesta prioridade:
-  //   1. todas as palavras no título;
-  //   2. todas as palavras em algum lugar do texto (outras formas, subtítulo, descrição, conteúdo);
-  //   3. palavras parecidas, para erros de digitação e variações ("vegetariano" acha "vegetarianos", "veganimo" acha "veganismo").
+  // Ordem dos resultados, por faixas (a faixa decide; a pontuação só desempata dentro dela):
+  //   6. argumento com todas as palavras no título;
+  //   5. argumento com todas as palavras no título ou nas outras formas em que ele aparece;
+  //   4. argumento com todas as palavras em algum lugar do texto (subtítulo, descrição, conteúdo);
+  //   3. outro item (glossário, falácia, viés, página) com todas as palavras no título;
+  //   2. outro item com todas as palavras em algum lugar do texto;
+  //   1. palavras parecidas, para erros de digitação e variações ("vegetariano" acha "vegetarianos", "veganimo" acha "veganismo").
+  // "Argumento" é o item marcado com d.a no índice (2 = catálogo principal; 1 = argumentos ruins e objeções políticas).
+  // Assim, um verbete do glossário nunca passa à frente de um argumento que também casa com a busca.
   // Dentro de cada faixa, palavra inteira ou no começo de palavra vale mais do que no meio de outra ("ovo" antes de "novo").
   var PESOS = [50, 30, 25, 10, 1];
   var acha = function (campo, termo) {               // 0 = não está; 1 = no meio de uma palavra; 2 = começo de palavra
@@ -59,40 +64,50 @@
     }
     return melhor;
   };
+  var todas = function (campos, termos) {           // soma de acha() em qualquer um dos campos; 0 se alguma palavra faltar
+    var p = 0;
+    for (var i = 0; i < termos.length; i++) {
+      var m = 0;
+      for (var c = 0; c < campos.length && m < 2; c++) { var k = acha(campos[c], termos[i]); if (k > m) m = k; }
+      if (!m) return 0;
+      p += m;
+    }
+    return p;
+  };
+  var pontua = function (d, t, termos) {             // devolve [faixa, pontos]; faixa 0 = fora
+    var arg = !!d.a, i, c, k, p;
+    p = todas([d.n[0]], termos);                     // título
+    if (p) return [arg ? 6 : 3, p + (termos.length > 1 && d.n[0].indexOf(t) >= 0 ? 10 : 0)];   // bônus: a frase inteira, nessa ordem
+    if (arg) { p = todas([d.n[0], d.n[1]], termos); if (p) return [5, p + (d.n[1].indexOf(t) >= 0 ? 5 : 0)]; }   // outras formas
+    p = 0;                                           // em algum lugar do texto, com peso pelo campo
+    for (i = 0; i < termos.length; i++) {
+      var melhor = 0;
+      for (c = 0; c < 5; c++) { k = acha(d.n[c], termos[i]); if (k) { var v = PESOS[c] * (k === 2 ? 1 : 0.6); if (v > melhor) melhor = v; } }
+      if (!melhor) { p = 0; break; }
+      p += melhor;
+    }
+    if (p) return [arg ? 4 : 2, p];
+    p = 0;                                           // palavras parecidas no título, nas outras formas ou no subtítulo
+    for (i = 0; i < termos.length; i++) {
+      var achou = 0;
+      for (c = 0; c < 5 && !achou; c++) if (acha(d.n[c], termos[i])) achou = 1;
+      if (!achou) achou = parecida(d, termos[i]) * 0.9;
+      if (!achou) return [0, 0];
+      p += achou;
+    }
+    return [1, p];
+  };
   var procura = function (texto, max) {
     var t = norm(texto).trim(), termos = t.split(/\s+/).filter(function (x) { return x.length >= 2; });
     if (!termos.length || !dados) return [];
     var achados = [];
     dados.forEach(function (d, ordem) {
-      var i, c, k, faixa = 3, p = 0;
-      // faixa 1: todas no título
-      for (i = 0; i < termos.length; i++) { k = acha(d.n[0], termos[i]); if (!k) { faixa = 0; break; } p += k; }
-      if (faixa) {
-        if (termos.length > 1 && d.n[0].indexOf(t) >= 0) p += 10;   // a frase inteira, nessa ordem
-        achados.push({ d: d, f: 3, p: p, o: ordem }); return;
-      }
-      // faixa 2: todas em algum lugar do texto
-      faixa = 2; p = 0;
-      for (i = 0; i < termos.length; i++) {
-        var melhor = 0;
-        for (c = 0; c < 5; c++) { k = acha(d.n[c], termos[i]); if (k) { var v = PESOS[c] * (k === 2 ? 1 : 0.6); if (v > melhor) melhor = v; } }
-        if (!melhor) { faixa = 0; break; }
-        p += melhor;
-      }
-      if (faixa) { achados.push({ d: d, f: 2, p: p, o: ordem }); return; }
-      // faixa 3: cada palavra aparece ou tem uma parecida no título, nas outras formas ou no subtítulo
-      p = 0;
-      for (i = 0; i < termos.length; i++) {
-        var achou = 0;
-        for (c = 0; c < 5 && !achou; c++) if (acha(d.n[c], termos[i])) achou = 1;
-        if (!achou) achou = parecida(d, termos[i]) * 0.9;
-        if (!achou) return;
-        p += achou;
-      }
-      achados.push({ d: d, f: 1, p: p, o: ordem });
+      var r = pontua(d, t, termos);
+      if (r[0]) achados.push({ d: d, f: r[0], a: d.a || 0, p: r[1], o: ordem });
     });
+    // dentro da faixa: argumento do catálogo antes dos outros, depois os pontos;
     // empate: o título mais curto primeiro ("Veganismo" antes de "Veganismo abolicionista")
-    achados.sort(function (a, b) { return b.f - a.f || b.p - a.p || a.d.t.length - b.d.t.length || a.o - b.o; });
+    achados.sort(function (a, b) { return b.f - a.f || b.a - a.a || b.p - a.p || a.d.t.length - b.d.t.length || a.o - b.o; });
     return achados.slice(0, max).map(function (x) { return x.d; });
   };
 
@@ -383,7 +398,7 @@
       var cab = el('p', 'rac-c'); cab.appendChild(el('span', 'cod', c)); if (n.raiz) cab.appendChild(el('span', 'selo', 'root'));
       atual.appendChild(cab);
       atual.appendChild(el('h2', '', '"' + n.f + '"'));
-      var r = el('div', 'rac-resp'); r.appendChild(el('p', 'ti', n.cap ? 'Short answer' : 'Main flaw')); r.appendChild(el('p', '', n.r));
+      var r = el('div', 'rac-resp'); r.appendChild(el('p', 'ti', n.cap ? 'Reply' : 'Main flaw')); r.appendChild(el('p', '', n.r));
       var a = el('a', '', n.cap ? 'Open the full chapter →' : 'Open the summary →'); a.href = n.u; r.appendChild(a);
       atual.appendChild(r);
       var vis = trilha.slice(0, -1);

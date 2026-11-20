@@ -288,7 +288,7 @@
   } else if ($('#curta-txt')) {
     var curtaEl = $('#curta-txt'), teseEl = $('.tese-c[data-frase] p');   /* só os capítulos têm "a resposta em uma frase" */
     var pergEl = $('.retorno p', curtaEl.closest('.painel') || document);
-    RESP = { ops: [['curta', 'Short answer', 'Short answer', textoDe(curtaEl)]], cab: '', caixa: null, inclui: 'Include the question to ask back' };
+    RESP = { ops: [['curta', 'Reply', 'Reply', textoDe(curtaEl)]], cab: '', caixa: null, inclui: 'Include the question to ask back' };
     if (teseEl) RESP.ops.push(['frase', 'In one sentence', 'The answer in one sentence', textoDe(teseEl)]);
     if (pergEl) RESP.caixa = ['Ask a question back', textoDe(pergEl)];
     ancora = (pergEl && pergEl.closest('.retorno')) || curtaEl.closest('.duas') || curtaEl;
@@ -456,9 +456,10 @@
       var lugar = $('.glos-links', it) || $('.glos-no-guia', it);
       if (lugar) it.insertBefore(b, lugar); else it.appendChild(b);
       b.addEventListener('click', function () {
-        var ops = [['def', 'Definition', 'Definition', textoDe($('.glos-def', it))]];
-        var com = $('.glos-com', it);
+        /* o comentário crítico, quando existe, vem primeiro (opção padrão); a definição em seguida */
+        var ops = [], com = $('.glos-com', it);
         if (com) ops.push(['com', 'Critical comment', 'Critical comment', textoDe(com).replace(/\s*(Veja|See) [^.]*\.\s*$/, '')]);
+        ops.push(['def', 'Definition', 'Definition', textoDe($('.glos-def', it))]);
         var ex = $('.glos-ex', it);
         abreResp({ tit: textoDe($('h3', it)), aspas: false, cab: 'Glossary', ops: ops,
           caixa: ex ? ['Example', textoDe(ex).replace(/^[“"]+|[”"]+$/g, '')] : null, inclui: 'Include the example',

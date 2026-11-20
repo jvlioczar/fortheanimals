@@ -2,7 +2,9 @@
 
 > Every objection deserves a good answer. A guide for people who want to talk better and think more clearly about animals, veganism and animal ethics. It systematically catalogs every idea used to exploit, harm or kill sentient beings, or to avoid helping them, and takes seriously and explains in depth the objections and biases of those who oppose antispeciesism.
 
-A free, open site, with no sign-up. Each argument has a page with the strongest version of the objection, what it gets right, where it fails, a short answer and the sources.
+A free, open site, with no sign-up. Each argument has a page with the strongest version of the objection, what it gets right, where it fails, a reply and the sources.
+
+License: original texts under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); cite "For the Animals: An Argument Guide" with a link.
 
 ## How to use
 
@@ -11,7 +13,7 @@ A free, open site, with no sign-up. Each argument has a page with the strongest 
 
 ## Arguments
 
-- [All arguments](https://fortheanimals.biblioverse.org/#arguments): the 292 arguments used against veganism and antispeciesism, each with its main flaw
+- [All arguments](https://fortheanimals.biblioverse.org/#arguments): the 290 arguments used against veganism and antispeciesism, each with its main flaw
 - [The families](https://fortheanimals.biblioverse.org/families.html): the arguments grouped by their underlying question and dominant error
 - [Types of exploitation](https://fortheanimals.biblioverse.org/exploitation.html): the arguments grouped by practice: food, clothing, research, entertainment, sport, fishing and hunting, work and companionship
 - [The anti-vegan line of reasoning](https://fortheanimals.biblioverse.org/reasoning.html): where the conversation goes after each objection is answered
@@ -26,7 +28,7 @@ A free, open site, with no sign-up. Each argument has a page with the strongest 
 
 ## For the movement itself
 
-- [Stop saying this](https://fortheanimals.biblioverse.org/stop-saying.html): 75 arguments used by vegans that do not survive scrutiny, and how to say them better
+- [Stop saying this](https://fortheanimals.biblioverse.org/stop-saying.html): 78 arguments used by vegans that do not survive scrutiny, and how to say them better
 - [Beyond veganism](https://fortheanimals.biblioverse.org/beyond-veganism.html): antispeciesism and sentientism, wild animals, digital minds and the currents of the movement
 
 ## Practice
