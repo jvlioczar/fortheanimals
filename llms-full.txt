@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 278 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 279 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -92,6 +92,7 @@ Does custom justify it?
 - [D12. My religion approves of eating animals](https://fortheanimals.biblioverse.org/arguments/my-religion-approves-of-eating-animals.html): Permitting is not requiring, and religious traditions themselves forbid unnecessary suffering, which today's production causes on a massive scale
 - [D13. Animal sacrifice in religious rituals is freedom of worship](https://fortheanimals.biblioverse.org/arguments/animal-sacrifice-in-religious-rituals-is-freedom-of-worship.html): Freedom of worship answers whether the state can ban the rite, not whether killing the animal is fair; that question applies equally to the rite and the slaughterhouse, and criticizing only Afro-Brazilian religions is inconsistent
 - [D14. I'll pay for my mistakes in my next life](https://fortheanimals.biblioverse.org/arguments/ill-pay-for-my-mistakes-in-my-next-life.html): The phrase admits the wrong and postpones the bill, but the animal pays now; the traditions of karma teach non-violence
+- [D15. Being vegan doesn't make you more spiritually evolved](https://fortheanimals.biblioverse.org/arguments/being-vegan-doesnt-make-you-more-spiritually-evolved.html): It swaps the question: the point isn't who is more evolved, but whether causing avoidable suffering and death to innocent animals can be justified
 
 ## E. Relativism, freedom and evasions (Part DIR)
 
