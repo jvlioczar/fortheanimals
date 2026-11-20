@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 279 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 285 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 ## A. Sentience and moral status (Part DIR)
 
@@ -350,6 +350,12 @@ Should we help, not just stop harming?
 - [N19. There's no way to plan for the long term, since we can't predict a distant future](https://fortheanimals.biblioverse.org/arguments/theres-no-way-to-plan-for-the-long-term-since-we-cant-predict-a.html): It works against plans that depend on getting one scenario right, not against actions that pay off in almost all of them; and uncertainty cuts both ways
 - [N20. The future will certainly be better, so there's no need to worry so much](https://fortheanimals.biblioverse.org/arguments/the-future-will-certainly-be-better-so-theres-no-need-to-worry-so-much.html): Moral progress is not automatic: every advance had someone making it happen; and with animals the recent trend runs the other way, because power grew without consideration keeping up
 - [N21. That's science fiction; we have real problems now](https://fortheanimals.biblioverse.org/arguments/thats-science-fiction-we-have-real-problems-now.html): An uncertain but immense risk can deserve attention, and much of what reduces future suffering, like widening the moral circle, also helps now
+- [N22. We'd have to drop everything to help wild animals](https://fortheanimals.biblioverse.org/arguments/wed-have-to-drop-everything-to-help-wild-animals.html): Professionals in the field do the research and helping; the public is asked for taxes, donations and support, as with public health
+- [N23. Saving a wild animal only prolongs its agony](https://fortheanimals.biblioverse.org/arguments/saving-a-wild-animal-only-prolongs-its-agony.html): What makes animals suffer usually kills them, so treating the cause ends the suffering; and some help only prevents births
+- [N24. Helping the weak ruins natural selection](https://fortheanimals.biblioverse.org/arguments/helping-the-weak-ruins-natural-selection.html): Selection favours whoever leaves more offspring, not whoever lives well; species don't feel, and for humans this idea is called eugenics
+- [N25. Nature is fair, every animal has weapons to escape](https://fortheanimals.biblioverse.org/arguments/nature-is-fair-every-animal-has-weapons-to-escape.html): Most victims are defenceless young, predators pick the weakest, and a species surviving doesn't show that each individual can escape
+- [N26. Domestic animals are our responsibility, wild ones are not](https://fortheanimals.biblioverse.org/arguments/domestic-animals-are-our-responsibility-wild-ones-are-not.html): A special relationship can give priority, but it doesn't erase the duty to others; we help distant humans with no relationship to us
+- [N27. Talking about wild animals pushes people away from veganism](https://fortheanimals.biblioverse.org/arguments/talking-about-wild-animals-pushes-people-away-from-veganism.html): It's a prediction no one has measured; research shows most people already care about these animals, and framing can be careful
 
 ## Stop saying this
 
