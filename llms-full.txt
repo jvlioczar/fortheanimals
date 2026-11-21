@@ -1,6 +1,6 @@
 # For the Animals: An Argument Guide
 
-> The 290 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
+> The 291 arguments in the catalogue, with the phrase, the main flaw and the address of the answer. Families in order; DIR codes challenge the moral core and IND codes discuss health, the environment, the economy or who defends veganism.
 
 License: original texts under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); cite "For the Animals: An Argument Guide" with a link.
 
@@ -363,6 +363,7 @@ Should we help, not just stop harming?
 - [N24. There's no way to plan for the long term, since we can't predict a distant future](https://fortheanimals.biblioverse.org/arguments/theres-no-way-to-plan-for-the-long-term-since-we-cant-predict-a.html): It works against plans that depend on getting one scenario right, not against actions that pay off in almost all of them; and uncertainty cuts both ways
 - [N25. The future will certainly be better, so there's no need to worry so much](https://fortheanimals.biblioverse.org/arguments/the-future-will-certainly-be-better-so-theres-no-need-to-worry-so-much.html): Moral progress is not automatic: every advance had someone making it happen; and with animals the recent trend runs the other way, because power grew without consideration keeping up
 - [N26. That's science fiction; we have real problems now](https://fortheanimals.biblioverse.org/arguments/thats-science-fiction-we-have-real-problems-now.html): An uncertain but immense risk can deserve attention, and much of what reduces future suffering, like widening the moral circle, also helps now
+- [N27. Bringing back extinct species makes up for what we destroyed](https://fortheanimals.biblioverse.org/arguments/bringing-back-extinct-species-makes-up-for-what-we-destroyed.html): A species doesn't feel: de-extinction counts the species and leaves out the animals created, those used in the process and the prey, without securing a good life for any of them
 
 ## Stop saying this
 
@@ -464,6 +465,7 @@ Should we help, not just stop harming?
 - [Virtue ethics](https://fortheanimals.biblioverse.org/political/virtue-ethics.html): Virtue is about human character; treating animals well matters only because it makes us better. Cultivate virtues like compassion, justice and temperance, and avoid vices like cruelty.
 - [Feminism](https://fortheanimals.biblioverse.org/political/feminism.html): Feminism is about women; talking about cows and hens is changing the subject, or even offensive. End oppression linked to sex and control over the body and reproduction.
 - [Anti-racism and anti-ableism](https://fortheanimals.biblioverse.org/political/anti-discrimination.html): Comparing speciesism to racism or ableism is offensive; they are different things. Do not give less weight to someone's interests because of a trait that does not change how much they can be harmed, such as race, disability, origin or appearance.
+- [Intersectionality](https://fortheanimals.biblioverse.org/political/intersectionality.html): Intersectionality is about human oppressions; animals are a different cause. Forms of discrimination do not act in isolation: race, gender, class, disability and others intersect and produce experiences of oppression that cannot be explained by any one of them alone. The term was proposed by the legal scholar Kimberlé Crenshaw in 1989, based on the situation of Black women in United States courts, and it has roots in Black feminism, as in the Combahee River Collective statement (1977) and in Patricia Hill Collins's idea of a matrix of domination.
 - [The progressive left and multiculturalism](https://fortheanimals.biblioverse.org/political/progressive-left-and-multiculturalism.html): The animal cause is a white middle-class concern that ends up attacking the cultural practices of minorities. Defend vulnerable groups, fight domination and respect cultural diversity.
 - [Pacifism and nonviolence](https://fortheanimals.biblioverse.org/political/pacifism.html): Nonviolence is a commitment between people, not to animals. Refuse violence as a means of resolving conflicts and reaching goals.
 - [Effective altruism](https://fortheanimals.biblioverse.org/political/effective-altruism.html): Resources for doing good are limited, and should go to humans first. Use evidence and reason to do the most good possible with the resources available.
@@ -481,6 +483,7 @@ Should we help, not just stop harming?
 ## Beyond veganism
 
 - [Antispeciesism and sentientism](https://fortheanimals.biblioverse.org/beyond/antispeciesism.html): Veganism is one consequence of a broader criterion: what matters morally is the capacity to be harmed or benefited.
+- [Speciesism among vegans](https://fortheanimals.biblioverse.org/beyond/speciesism-among-vegans.html): Giving up eating animals does not eliminate speciesism. It survives in priorities, in arguments and in ways of speaking, including among vegans and the organizations that represent them.
 - [What supports animal ethics, and what weakens it](https://fortheanimals.biblioverse.org/beyond/foundations.html): Critical reason, relevance, impartiality and sentience support veganism and animal ethics. Partiality, relativism, tribalism, ableism, making abstractions sacred and weak will weaken them.
 - [The state of the art in animal ethics](https://fortheanimals.biblioverse.org/beyond/state-of-the-art.html): Since 1975, animal ethics has been tested on ever harder cases, by authors from schools that disagree with each other, and has reached the same rejection of speciesism.
 - [The currents of the vegan movement](https://fortheanimals.biblioverse.org/beyond/currents-of-veganism.html): All vegans want the end of animal exploitation. The currents disagree about why, with whom and how to get there. A map of the ends, the means and the main debates.
