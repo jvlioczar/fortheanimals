@@ -13,7 +13,7 @@ License: original texts under CC BY 4.0 (https://creativecommons.org/licenses/by
 
 ## Arguments
 
-- [All arguments](https://fortheanimals.biblioverse.org/#arguments): the 291 arguments used against veganism and antispeciesism, each with its main flaw
+- [All arguments](https://fortheanimals.biblioverse.org/#arguments): more than 290 arguments used against veganism and antispeciesism, each with its main flaw
 - [The families](https://fortheanimals.biblioverse.org/families.html): the arguments grouped by their underlying question and dominant error
 - [Types of exploitation](https://fortheanimals.biblioverse.org/exploitation.html): the arguments grouped by practice: food, clothing, research, entertainment, sport, fishing and hunting, work and companionship
 - [The anti-vegan line of reasoning](https://fortheanimals.biblioverse.org/reasoning.html): where the conversation goes after each objection is answered
