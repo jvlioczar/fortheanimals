@@ -673,3 +673,5 @@ details.item summary:hover{background:#ffeb5b66}details.item[open]{background:#f
 .glos-img{display:inline-block;margin:0 0 8px;font:600 .78rem var(--sans);background:transparent;border:1.5px solid var(--tinta);border-radius:99px;padding:2px 10px;cursor:pointer;color:var(--tinta)}
 .glos-img:hover{background:#fffad4}
 .rodape .licenca{font-size:.8rem;opacity:.85;margin-top:10px}
+/* páginas de cada falácia e viés */
+.texto-erro .analogia{background:var(--areia);padding:12px 16px;border-radius:10px}.lista-erro{padding-left:18px}.lista-erro li{margin:7px 0}.mais-erro{font-size:.85em;white-space:nowrap}
