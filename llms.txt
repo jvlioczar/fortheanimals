@@ -22,8 +22,8 @@ License: original texts under CC BY 4.0 (https://creativecommons.org/licenses/by
 
 ## Errors and vocabulary
 
-- [Fallacies](https://fortheanimals.biblioverse.org/fallacies.html): the logical errors that explain much of the catalogue
-- [Biases](https://fortheanimals.biblioverse.org/biases.html): the psychological mechanisms that make these arguments convincing
+- [Fallacies](https://fortheanimals.biblioverse.org/fallacies.html): the logical errors that explain much of the catalogue, each with its own page: what it is, an analogy and where it appears
+- [Biases](https://fortheanimals.biblioverse.org/biases.html): the psychological mechanisms that make these arguments convincing, each with its own page
 - [Glossary](https://fortheanimals.biblioverse.org/glossary.html): the terms of animal ethics, veganism and the debate on animal exploitation
 
 ## For the movement itself

@@ -365,6 +365,116 @@ Should we help, not just stop harming?
 - [N26. That's science fiction; we have real problems now](https://fortheanimals.biblioverse.org/arguments/thats-science-fiction-we-have-real-problems-now.html) (IND): An uncertain but immense risk can deserve attention, and much of what reduces future suffering, like widening the moral circle, also helps now
 - [N27. Bringing back extinct species makes up for what we destroyed](https://fortheanimals.biblioverse.org/arguments/bringing-back-extinct-species-makes-up-for-what-we-destroyed.html) (DIR): A species doesn't feel: de-extinction counts the species and leaves out the animals created, those used in the process and the prey, without securing a good life for any of them
 
+## Fallacies
+
+- [Appeal to nature](https://fortheanimals.biblioverse.org/fallacies/appeal-to-nature.html): "It's natural, so it's good"
+- [Hume's law (from is to ought)](https://fortheanimals.biblioverse.org/fallacies/hume-s-law-from-is-to-ought.html): Deriving a norm from a fact
+- [Appeal to tradition](https://fortheanimals.biblioverse.org/fallacies/appeal-to-tradition.html): "It's always been this way"
+- [Appeal to popularity and normality](https://fortheanimals.biblioverse.org/fallacies/appeal-to-popularity-and-normality.html): "Everybody does it"
+- [Appeal to authority](https://fortheanimals.biblioverse.org/fallacies/appeal-to-authority.html): "So-and-so said it or did it"
+- [Arbitrary criterion (speciesism)](https://fortheanimals.biblioverse.org/fallacies/arbitrary-criterion-speciesism.html): An irrelevant trait chosen as the moral boundary
+- [Persuasive definition](https://fortheanimals.biblioverse.org/fallacies/persuasive-definition.html): Defining the term to win the argument
+- [Begging the question](https://fortheanimals.biblioverse.org/fallacies/begging-the-question.html): The conclusion is hidden in the premise
+- [Continuum fallacy](https://fortheanimals.biblioverse.org/fallacies/continuum-fallacy.html): No exact line means no difference
+- [Hasty generalization from an exception](https://fortheanimals.biblioverse.org/fallacies/hasty-generalization-from-an-exception.html): An exception used as the rule
+- [False dichotomy](https://fortheanimals.biblioverse.org/fallacies/false-dichotomy.html): Either this or that, with no third way
+- [Nirvana fallacy](https://fortheanimals.biblioverse.org/fallacies/nirvana-fallacy.html): If it isn't perfect, it doesn't count
+- [Tu quoque](https://fortheanimals.biblioverse.org/fallacies/tu-quoque.html): "You do it too"
+- [Ad hominem and poisoning the well](https://fortheanimals.biblioverse.org/fallacies/ad-hominem-and-poisoning-the-well.html): Attacking the person
+- [Guilt by association](https://fortheanimals.biblioverse.org/fallacies/guilt-by-association.html): Linking the idea to something hated
+- [Priority fallacy](https://fortheanimals.biblioverse.org/fallacies/priority-fallacy.html): "There are more important things"
+- [Anecdotal evidence](https://fortheanimals.biblioverse.org/fallacies/anecdotal-evidence.html): One case against the data
+- [Cherry picking](https://fortheanimals.biblioverse.org/fallacies/cherry-picking.html): Selecting only the favorable data
+- [False middle ground](https://fortheanimals.biblioverse.org/fallacies/false-middle-ground.html): The truth is always in the middle
+- [Changing the question (red herring)](https://fortheanimals.biblioverse.org/fallacies/changing-the-question-red-herring.html): Swapping "is it wrong?" for another question
+- [Straw man](https://fortheanimals.biblioverse.org/fallacies/straw-man.html): Distorting the other person's position to refute it easily
+- [Appeal to ridicule](https://fortheanimals.biblioverse.org/fallacies/appeal-to-ridicule.html): Mocking the idea instead of answering it
+- [Appeal to ignorance](https://fortheanimals.biblioverse.org/fallacies/appeal-to-ignorance.html): "Nobody has proved it isn't, so it is"
+- [False cause (post hoc)](https://fortheanimals.biblioverse.org/fallacies/false-cause-post-hoc.html): "It happened after, so it happened because of it"
+- [Slippery slope](https://fortheanimals.biblioverse.org/fallacies/slippery-slope.html): "If we accept this, it will end in something extreme"
+- [Appeal to legality](https://fortheanimals.biblioverse.org/fallacies/appeal-to-legality.html): "It's allowed by law, so it's right"
+- [Bulverism](https://fortheanimals.biblioverse.org/fallacies/bulverism.html): Explaining why someone thinks something instead of showing where they are wrong
+- [Fallacy fallacy](https://fortheanimals.biblioverse.org/fallacies/fallacy-fallacy.html): "That argument is bad, so the conclusion is false"
+- [Equivocation](https://fortheanimals.biblioverse.org/fallacies/equivocation.html): Using the same word in two different senses
+- [Hasty generalization](https://fortheanimals.biblioverse.org/fallacies/hasty-generalization.html): Drawing a rule about everyone from a few cases
+- [Appeal to fear](https://fortheanimals.biblioverse.org/fallacies/appeal-to-fear.html): Scaring people with exaggerated consequences instead of giving evidence
+- [Euphemism](https://fortheanimals.biblioverse.org/fallacies/euphemism.html): Renaming something so the harm seems smaller
+- [Denying the antecedent](https://fortheanimals.biblioverse.org/fallacies/denying-the-antecedent.html): "If A, then B; not A; so, not B". E.g. "if a person studies medicine, they are at university; they do not study medicine; so, they are not at university". They may be on another course
+- [Affirming the consequent](https://fortheanimals.biblioverse.org/fallacies/affirming-the-consequent.html): "If A, then B; B; so, A". E.g. "if it rained, the street is wet; the street is wet; so, it rained". Someone may have hosed down the pavement
+
+## Biases
+
+- [Cognitive dissonance (the meat paradox)](https://fortheanimals.biblioverse.org/biases/cognitive-dissonance-the-meat-paradox.html): Loving animals and eating them creates tension, resolved by denying minds to the animals eaten (Bastian et al., 2012)
+- [Motivated reasoning](https://fortheanimals.biblioverse.org/biases/motivated-reasoning.html): Looking for reasons for the conclusion you already want
+- [Confirmation bias](https://fortheanimals.biblioverse.org/biases/confirmation-bias.html): Accepting only what confirms a prior belief
+- [Status quo bias](https://fortheanimals.biblioverse.org/biases/status-quo-bias.html): Preferring the current state because it is current
+- [System justification](https://fortheanimals.biblioverse.org/biases/system-justification.html): Legitimizing the existing order to reduce discomfort
+- [Willful ignorance](https://fortheanimals.biblioverse.org/biases/willful-ignorance.html): Avoiding information that would create an obligation
+- [Functional categorization](https://fortheanimals.biblioverse.org/biases/functional-categorization.html): "Food" animals are granted less mind than "pet" animals
+- [Ingroup bias](https://fortheanimals.biblioverse.org/biases/ingroup-bias.html): Valuing "our own" and devaluing outsiders
+- [Scope insensitivity](https://fortheanimals.biblioverse.org/biases/scope-insensitivity.html): Billions of victims don't weigh more than one
+- [Diffusion of responsibility](https://fortheanimals.biblioverse.org/biases/diffusion-of-responsibility.html): Shared blame feels like no blame
+- [Psychological reactance](https://fortheanimals.biblioverse.org/biases/psychological-reactance.html): Pushing back when freedom feels threatened
+- [Identity-protective cognition](https://fortheanimals.biblioverse.org/biases/identity-protective-cognition.html): Rejecting ideas that threaten the group or one's identity
+- [Affect heuristic](https://fortheanimals.biblioverse.org/biases/affect-heuristic.html): "I like it, so it's good"
+- [Moral licensing](https://fortheanimals.biblioverse.org/biases/moral-licensing.html): One good act licenses a bad one
+- [Optimism bias and exceptionalism](https://fortheanimals.biblioverse.org/biases/optimism-bias-and-exceptionalism.html): "My meat is different"
+- [Survivorship bias](https://fortheanimals.biblioverse.org/biases/survivorship-bias.html): We only see those who made it
+- [The 4Ns rationalization](https://fortheanimals.biblioverse.org/biases/the-4ns-rationalization.html): Justifying eating animals by saying it is natural, normal, necessary and nice (Piazza and colleagues, 2015).
+- [Hypocrisy hunting](https://fortheanimals.biblioverse.org/biases/hypocrisy-hunting.html): Looking for an inconsistency in whoever defends an idea so as not to examine the idea.
+- [Mind denial](https://fortheanimals.biblioverse.org/biases/mind-denial.html): Attributing less mind and less capacity to suffer to the animals we eat.
+- [Do-gooder derogation](https://fortheanimals.biblioverse.org/biases/do-gooder-derogation.html): Belittling people who act for moral reasons, because their conduct feels like an accusation.
+- [Reactive devaluation](https://fortheanimals.biblioverse.org/biases/reactive-devaluation.html): Rejecting a proposal because it came from the other side.
+- [Messenger effect](https://fortheanimals.biblioverse.org/biases/messenger-effect.html): Judging the message by who says it rather than by what it says.
+- [Bandwagon effect and social conformity](https://fortheanimals.biblioverse.org/biases/bandwagon-effect-and-social-conformity.html): Adopting a habit or an idea because many people around you do.
+- [Pluralistic ignorance](https://fortheanimals.biblioverse.org/biases/pluralistic-ignorance.html): Many disagree in private but think everyone else agrees.
+- [Default effect](https://fortheanimals.biblioverse.org/biases/default-effect.html): Sticking with the option that comes ready-made, like the plate with meat.
+- [Illusory truth and mere exposure effects](https://fortheanimals.biblioverse.org/biases/illusory-truth-and-mere-exposure-effects.html): What you hear often seems true, and what is familiar seems better.
+- [Omission bias and perpetrator bias](https://fortheanimals.biblioverse.org/biases/omission-bias-and-perpetrator-bias.html): Judging as less serious the harm we don't cause with our own hands, or that results from not acting.
+- [Intention bias](https://fortheanimals.biblioverse.org/biases/intention-bias.html): Reacting more strongly to harm when someone caused it on purpose than to equal harm from causes with no one to blame.
+- [Teleological bias and agency detection](https://fortheanimals.biblioverse.org/biases/teleological-bias-and-agency-detection.html): Seeing purpose and intention in nature: animals would "exist for" something.
+- [Collapse of compassion](https://fortheanimals.biblioverse.org/biases/collapse-of-compassion.html): The more victims, the less we feel for each; one identifiable victim moves us more than millions.
+- [Loss aversion and the endowment effect](https://fortheanimals.biblioverse.org/biases/loss-aversion-and-the-endowment-effect.html): Losing what you have weighs more than gaining something equivalent.
+- [Sunk cost and effort justification](https://fortheanimals.biblioverse.org/biases/sunk-cost-and-effort-justification.html): Carrying on because you've invested a lot, not because it's worth it.
+- [Rosy retrospection](https://fortheanimals.biblioverse.org/biases/rosy-retrospection.html): Remembering the past as better than it was.
+- [Overconfidence (Dunning-Kruger)](https://fortheanimals.biblioverse.org/biases/overconfidence-dunning-kruger.html): People who know little about a topic tend to overestimate what they know.
+- [Naive realism and the bias blind spot](https://fortheanimals.biblioverse.org/biases/naive-realism-and-the-bias-blind-spot.html): Thinking we see the world as it is and only others are biased.
+- [Anthropocentric thinking](https://fortheanimals.biblioverse.org/biases/anthropocentric-thinking.html): Using humans as the measure of everything, including of what counts as feeling.
+- [Naturalness bias](https://fortheanimals.biblioverse.org/biases/naturalness-bias.html): What seems natural is judged better and safer.
+- [Availability bias](https://fortheanimals.biblioverse.org/biases/availability-bias.html): Judging by the easiest memory, like an acquaintance's case, rather than by the data.
+- [Authority bias](https://fortheanimals.biblioverse.org/biases/authority-bias.html): Accepting a claim because of the prestige of whoever makes it.
+- [Present bias](https://fortheanimals.biblioverse.org/biases/present-bias.html): Giving too much weight to now and too little to future consequences.
+- [Halo effect](https://fortheanimals.biblioverse.org/biases/halo-effect.html): One good quality, like "local" or "organic", colors the judgment of everything else.
+- [Social dominance orientation](https://fortheanimals.biblioverse.org/biases/social-dominance-orientation.html): Preferring hierarchies between groups, including between species.
+- [Psychological essentialism](https://fortheanimals.biblioverse.org/biases/psychological-essentialism.html): Believing each kind of being has a fixed essence that defines its place.
+- [Masculinity and meat](https://fortheanimals.biblioverse.org/biases/masculinity-and-meat.html): Associating eating meat with manliness, which makes change feel like a threat to identity.
+- [Stereotyping](https://fortheanimals.biblioverse.org/biases/stereotyping.html): Judging someone by a simplified image of the group they belong to.
+- [Dissociation and euphemism](https://fortheanimals.biblioverse.org/biases/dissociation-and-euphemism.html): Separating the animal from the food, including through the words we use.
+- [False consensus](https://fortheanimals.biblioverse.org/biases/false-consensus.html): Overestimating how many people think like us.
+- [Food neophobia](https://fortheanimals.biblioverse.org/biases/food-neophobia.html): Distrusting unfamiliar foods.
+- [Nocebo effect](https://fortheanimals.biblioverse.org/biases/nocebo-effect.html): Expecting something to do harm produces real symptoms.
+- [Salience bias](https://fortheanimals.biblioverse.org/biases/salience-bias.html): Giving weight to what grabs attention, like the distance traveled, rather than to what matters most.
+- [Middle-ground bias](https://fortheanimals.biblioverse.org/biases/middle-ground-bias.html): Thinking the middle position is always the most sensible.
+- [Empathy gap](https://fortheanimals.biblioverse.org/biases/empathy-gap.html): Feeling less empathy for an animal the more evolutionarily distant it is from us.
+- [Sizeism](https://fortheanimals.biblioverse.org/biases/sizeism.html): Giving an animal less importance because it is small.
+- [Intelligence bias](https://fortheanimals.biblioverse.org/biases/intelligence-bias.html): Giving an animal less importance because it is seen as not very intelligent.
+- [Substratism](https://fortheanimals.biblioverse.org/biases/substratism.html): Giving a being less importance because of the material it is made of, as with non-organic beings.
+- [Proportion bias](https://fortheanimals.biblioverse.org/biases/proportion-bias.html): Judging help by the fraction of the problem it solves rather than by the number of individuals helped.
+- [Just-world hypothesis](https://fortheanimals.biblioverse.org/biases/just-world-hypothesis.html): Believing the world is fair, so those who suffer are getting what is due to them.
+- [Neglect of probability](https://fortheanimals.biblioverse.org/biases/neglect-of-probability.html): Deciding under uncertainty without weighing the probability, treating a risk as certain or as nonexistent.
+- [Ambiguity effect](https://fortheanimals.biblioverse.org/biases/ambiguity-effect.html): Avoiding options whose chance of success is unknown, even when they may be the best ones.
+- [Evaluability bias](https://fortheanimals.biblioverse.org/biases/evaluability-bias.html): Giving more weight to what is easy to measure than to what matters most.
+- [Duration neglect](https://fortheanimals.biblioverse.org/biases/duration-neglect.html): Judging an experience by its striking moments and its end, without counting how long it lasted.
+- [Pro-innovation bias](https://fortheanimals.biblioverse.org/biases/pro-innovation-bias.html): Overestimating what an innovation will solve and not seeing its limits.
+- [Belief digitization](https://fortheanimals.biblioverse.org/biases/belief-digitization.html): Treating a probability as if it were zero or one instead of taking the uncertainty into account.
+- [Belief perseverance](https://fortheanimals.biblioverse.org/biases/belief-perseverance.html): Holding on to a belief even after learning of evidence against it.
+- [Continued influence effect](https://fortheanimals.biblioverse.org/biases/continued-influence-effect.html): Information that has already been corrected keeps influencing what a person thinks.
+- [Zero-sum bias](https://fortheanimals.biblioverse.org/biases/zero-sum-bias.html): Seeing a situation as a contest in which one side's gain is the other's loss, even when it is not.
+- [Availability cascade](https://fortheanimals.biblioverse.org/biases/availability-cascade.html): An idea gains credit by being repeated a lot in public, and the more credit it gains, the more it is repeated.
+- [Illusory correlation](https://fortheanimals.biblioverse.org/biases/illusory-correlation.html): Seeing a link between two things that merely happened together.
+- [Framing effect](https://fortheanimals.biblioverse.org/biases/framing-effect.html): The same information leads to different judgments depending on how it is presented.
+- [Illusion of explanatory depth](https://fortheanimals.biblioverse.org/biases/illusion-of-explanatory-depth.html): Thinking you understand how something works much better than you actually do.
+
 ## Stop saying this
 
 - [V1. Going vegan will make you healthier.](https://fortheanimals.biblioverse.org/stop-saying/going-vegan-will-make-you-healthier.html): It's imprecise: any badly planned diet carries risks.
