@@ -9,7 +9,7 @@ License: original texts under CC BY 4.0 (https://creativecommons.org/licenses/by
 ## How to use
 
 - [Start here](https://fortheanimals.biblioverse.org/start-here.html): the sentience criterion, the guide's commitments and the difference between direct and indirect arguments
-- [About the guide](https://fortheanimals.biblioverse.org/about.html): what the project is, how sources are handled and what tone it takes
+- [About the guide](https://fortheanimals.biblioverse.org/about.html): what the project is, its method, sources and tone, who the author is and other projects: Ethics, Politics and Science for Beginners, A Question of Ethics and the Ethical Food Guide
 
 ## Arguments
 
