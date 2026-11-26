@@ -433,6 +433,7 @@ Should we help, not just stop harming?
 - [Omission bias and perpetrator bias](https://fortheanimals.biblioverse.org/biases/omission-bias-and-perpetrator-bias.html): Judging as less serious the harm we don't cause with our own hands, or that results from not acting.
 - [Intention bias](https://fortheanimals.biblioverse.org/biases/intention-bias.html): Reacting more strongly to harm when someone caused it on purpose than to equal harm from causes with no one to blame.
 - [Teleological bias and agency detection](https://fortheanimals.biblioverse.org/biases/teleological-bias-and-agency-detection.html): Seeing purpose and intention in nature: animals would "exist for" something.
+- [Symbolic threat](https://fortheanimals.biblioverse.org/biases/symbolic-threat.html): Seeing a group as a threat to the majority’s values, norms and way of life, rather than to goods or safety.
 - [Collapse of compassion](https://fortheanimals.biblioverse.org/biases/collapse-of-compassion.html): The more victims, the less we feel for each; one identifiable victim moves us more than millions.
 - [Loss aversion and the endowment effect](https://fortheanimals.biblioverse.org/biases/loss-aversion-and-the-endowment-effect.html): Losing what you have weighs more than gaining something equivalent.
 - [Sunk cost and effort justification](https://fortheanimals.biblioverse.org/biases/sunk-cost-and-effort-justification.html): Carrying on because you've invested a lot, not because it's worth it.
